@@ -1,0 +1,44 @@
+<form id=formularioAlta enctype='multipart/form-data'>
+	<label for=titulo>Título:</label>
+	<input type=text class=grande name=titulo id=titulo />
+	<br />
+	<label for=autor>Autor:</label>
+ 	<input type=text class=grande name=autor id=autor />
+	<fieldset id=imagenes>
+		<legend>Imágenes</legend>
+		<input type=file accept="image/*" />
+	</fieldset>
+	<label for=medidasConMarco>Medida con Marco:</label>
+	<input type=text name=medidaConMarco class=pequeno />
+	<br/>
+	<label for=medidasSinMarco>Medida sin Marco:</label>
+	<input type=text name=medidaSinMarco class=pequeno />
+	<br/>
+	<label for=propietario>Propietario:</label>
+	<input type=text name=propietario class=pequeno />
+	<br/>
+	<label for=marcas>Marcas:</label>
+	<textarea type=text name=marcas></textarea>
+	<br/>
+	<label for=estadoConservacion>Estado de Conservación:</label>
+	<br />
+	<textarea name=estadoConservacion ></textarea>
+	<br/>
+	<label for=materiales>Materiales:</label>
+	<input type=text class=grande name=materiales />
+	<br />
+	<label for=tecnica>Técnica:</label>
+	<input type=text name=tecnica class=grande />
+	<br/>
+	<label for=descripcionObra>Descripción de la Obra:</label>
+	<br />
+	<textarea name=descripcionObra></textarea>
+	<br/>
+	<label for=descripcionAutor>Descripción del Autor:</label>
+	<br/>
+	<textarea name=descripcionAutor></textarea>
+	<p class=botones>
+		<button id=btnCancelar type=button class=cancelar>Cancelar</button>
+		<button id=btnAceptar type=button class=aceptar>Aceptar</button>
+	</p>
+</form>
