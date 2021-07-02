@@ -1,0 +1,7 @@
+- Alta: 
+	Insertar en BBDD - Confirmar.
+	Mostrar Lista de Cuadros y Mensaje Confirmación.
+	Alta con Imágenes.
+- Baja:
+- Modificación:
+

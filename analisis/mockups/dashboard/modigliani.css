@@ -1,0 +1,49 @@
+h1 {
+  font-family: arial;
+  font-weight: bold;
+  color: darkred;
+}
+
+nav {
+  border-bottom: 1px solid grey;
+}
+
+nav * {
+  margin-right: 1em;
+}
+
+main {
+  display: flex;
+  flex-wrap: start;
+  align-items: stretch;
+}
+
+.cuadro {
+  flex: 0 0 200px;
+  margin: 2em;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+.cuadro img {
+  max-width: 100%;
+}
+
+.cuadro p {
+  font-family: arial;
+  color: darkgrey;
+  padding: 0 1em 0 1em;
+}
+
+.cuadro p:first-of-type {
+  font-weight: bold;
+}
+
+.cuadro .botones img:nth-child(3){
+  float: right;
+  top: 0px;
+}
+
+button, .cuadro img, .activo {
+  cursor: pointer;
+}

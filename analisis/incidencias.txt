@@ -1,0 +1,8 @@
+- CU. Alta.
+	- Refactorizar ajax.js
+- CU. Consultar.
+- CU. Editar.
+- CU. Borrar.
+- Control de acceso (htacces) para evitar el acceso a la base de datos, pero permitir el acceso a las imágenes
+- MEJORA: evitar cargar plantillas de HTML que ya han sido cargadas.
+	Realizar carga estática de la plantilla.

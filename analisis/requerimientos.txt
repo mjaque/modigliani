@@ -1,0 +1,30 @@
+ROLES:
+	- admin
+	- invitado
+
+FUNCIONALES:
+	F1 - Alta de Cuadros		admin
+	F2 - Lista de Cuadros		admin
+	F3 - Consulta de Cuadro	admin, invitado
+
+ERGONÓMICOS:
+	E1 - Resolución sm (<992px)
+	E2 - Resolución lg (>992px)
+
+NORMATIVOS:
+	No hay
+
+SEGURIDAD:
+	S1 - Identificación por login de Google.
+	S2 - Restricción de acceso a usuarios no autorizados.
+	S4 - Filtrado de datos de entrada.
+	S5 - Limpieza de datos de salida.
+	S6 - Patrón Fachada. Control de Acceso a directorios internos.
+
+MODELO DE DATOS:
+Obra:
+	autor, título, medidas con marco, medidas sin marco, marcas, propietario, estado, materiales, técnica, descripción de la obra, descripción del autor: texto
+	imágenes: array de ficheros.
+	anexos: array de ficheros.
+	movimientos:
+		array: lugar, fecha, responsable.

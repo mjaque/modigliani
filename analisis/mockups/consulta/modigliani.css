@@ -1,0 +1,66 @@
+h1 {
+  font-family: arial;
+  font-weight: bold;
+  color: darkred;
+}
+
+nav {
+  border-bottom: 1px solid grey;
+}
+
+nav * {
+  margin-right: 1em;
+}
+
+main {
+  /*display: flex;
+  flex-wrap: start;
+  align-items: stretch;*/
+}
+
+#cuadro {
+  /*flex: 0 0 200px;*/
+  margin: 2em;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+#cuadro .cuadro {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+#cuadro h2, #cuadro h3, #cuadro p {
+  font-family: arial;
+  color: grey;
+  padding: 0 1em 0 1em;
+}
+
+#imagenes {
+  display: flex;
+  flex-wrap: start;
+  align-items: stretch;
+}
+
+.imagen {
+  max-width:75px;
+  flex: 0 0 100px;
+  margin: 2em;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+#cuadro .botones img:nth-child(2) {
+  float: right;
+  top: 0px;
+}
+
+button, #cuadro img, .activo {
+  cursor: pointer;
+}
+
+#cuadro img:hover, .activo:hover {
+  background-color: lightblue;
+}

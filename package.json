@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "jsdoc": "^3.6.7"
+  },
+  "devDependencies": {
+    "mocha": "^9.0.1"
+  },
+  "scripts":  {
+	"test": "mocha"
+  }
+}

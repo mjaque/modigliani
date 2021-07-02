@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang=es>
+
+<head>
+  <meta charset=utf-8 />
+  <meta name=viewport content="width=device-width, initial-scale=1" />
+  <title>Modigliani v0.1</title>
+
+  <link rel=stylesheet href=modigliani.css />
+</head>
+
+<body>
+  <nav>
+    <div style="float:right">
+      <img class=activo title="Volver" src="back.svg" />
+      <img class=activo title="Configurar" src="settings.svg" />
+      <img class=activo title="Cerrar Sesión" src="logout.svg" />
+    </div>
+    <h1>Modigliani</h1>
+  </nav>
+  <main>
+    <div id="cuadro">
+      <label for="titulo">Título:</label>
+      <input type="text" class=grande id="titulo" value="El Gran Desnudo" />
+      <br />
+      <label for="autor">Autor:</label>
+      <input type="text" class=grande id="autor" value="Amadeo Modigliani" />
+      <fieldset id="imagenes">
+        <legend>Imágenes</legend>
+          <div class=contenedor>
+            <img class="imagen" src="../img/El gran desnudo.jpg" />
+            <img class=activo title="Eliminar" src="delete.svg" />
+          </div>
+          <div class=contenedor>
+            <img class="imagen" src="../img/Desnudo Acostado.jpg" />
+            <img class=activo title="Eliminar" src="delete.svg" />
+          </div>
+          <div class=contenedor>
+            <img class="imagen" src="../img/carta_ajuste.png" />
+            <img class=activo title="Eliminar" src="delete.svg" />
+          </div>
+          <div class=contenedor>
+            <img class="imagen" src="../img/El gran desnudo.jpg" />
+            <img class=activo title="Eliminar" src="delete.svg" />
+          </div>
+          <div class=contenedor>
+            <img class="imagen" src="../img/Desnudo Acostado.jpg" />
+            <img class=activo title="Eliminar" src="delete.svg" />
+          </div>
+          <div class=contenedor>
+            <img class="imagen" src="../img/carta_ajuste.png" />
+            <img class=activo title="Eliminar" src="delete.svg" />
+          </div>
+        <img class=activo title="Añadir" src="add_to_photos.svg" />
+      </fieldset>
+      <label for="medidas">Medidas:</label>
+      <input type="text" id="medidas" class=pequeno value="130 x 140" />
+      <br/>
+      <label for="tecnica">Técnica:</label>
+      <input type="text" id="tecnica" class=pequeno value="Óleo sobre lienzo" />
+      <p class="botones">
+        <button type="button" class="cancelar">Cancelar</button>
+        <button type="button" class="aceptar">Aceptar</button>
+      </p>
+
+      </div>
+  </main>
+
+</body>
+
+</html>

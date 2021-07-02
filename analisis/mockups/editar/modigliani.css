@@ -1,0 +1,126 @@
+h1 {
+  font-family: arial;
+  font-weight: bold;
+  color: darkred;
+}
+
+nav {
+  border-bottom: 1px solid grey;
+}
+
+nav * {
+  margin-right: 1em;
+}
+
+main {
+  /*display: flex;
+  flex-wrap: start;
+  align-items: stretch;*/
+}
+
+label, legend{
+  font-family: arial;
+  font-weight: bold;
+  color: grey;
+  line-height: 2em;
+}
+
+input[type=text]{
+  font-family: arial;
+  color: red;
+  box-sizing: border-box;
+}
+
+input[type=text].grande{
+  width: 80%
+}
+
+input[type=text].pequeno{
+  width: 40%
+}
+
+button {
+  border: none;
+  color: white;
+  padding: 1em 2em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+}
+button:hover{
+  text-decoration: underline;
+}
+button.aceptar{
+  background-color: darkgreen;
+}
+button.aceptar:hover{
+  background-color: green;
+}
+
+button.cancelar{
+  background-color: darkred;
+}
+button.cancelar:hover{
+  background-color: red;
+}
+
+#cuadro {
+  /*flex: 0 0 200px;*/
+  margin: 2em;
+  padding: 1em;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+#cuadro .cuadro {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+#cuadro h2, #cuadro h3, #cuadro p {
+  font-family: arial;
+  color: grey;
+  padding: 0 1em 0 1em;
+}
+
+#imagenes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+div.contenedor{
+  position: relative; /* Para colocar los iconos sobre las imágenes */
+  flex: 0 0 100px;
+  border: 1px solid grey;
+  margin: 0.2em;
+}
+
+#imagenes .imagen {
+  max-width:200px;
+  margin: 1em;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+.contenedor .activo{
+  position: absolute;
+  bottom:0;
+  left:90%;
+}
+
+#cuadro .botones img:nth-child(2) {
+  float: right;
+  top: 0px;
+}
+
+button, #cuadro img, .activo {
+  cursor: pointer;
+}
+
+#cuadro img:hover, .activo:hover {
+  background-color: lightblue;
+}
