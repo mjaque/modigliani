@@ -1,0 +1,438 @@
+{
+  "id": "ea93d34a-7180-4057-bc7f-7f75e32455a7",
+  "version": "2.0",
+  "name": "Modigliani",
+  "url": "http://modigliani.local",
+  "tests": [{
+    "id": "775a273d-c734-4f48-a7f7-bda38000425d",
+    "name": "Inicio",
+    "commands": [{
+      "id": "3c8baed2-eb4e-40ac-97cb-01952d3c4082",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "300c456f-0510-419e-a48d-703e1fd145c2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "655x618",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "79e26087-b12e-4b9c-a61e-8c1508e47fb2",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "Modigliani v0.1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "995df5c4-cafd-47d2-94f9-73f9380f0147",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=btnVerFormularioAlta",
+      "targets": [
+        ["id=btnVerFormularioAlta", "id"],
+        ["css=#btnVerFormularioAlta", "css:finder"],
+        ["xpath=//img[@title='Añadir Cuadro']", "xpath:img"],
+        ["xpath=//img[@id='btnVerFormularioAlta']", "xpath:attributes"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "d6ea5f64-62bb-4055-b9d6-bb41e151929e",
+    "name": "Alta",
+    "commands": [{
+      "id": "b2b87ea9-a495-4e49-b32b-ff69838a31dd",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "11dd5779-ced1-4216-ab33-c8005b3b072c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "655x620",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ebd8ef2d-697a-4d10-9fbf-589f41878a7f",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnVerFormularioAlta",
+      "targets": [
+        ["id=btnVerFormularioAlta", "id"],
+        ["css=#btnVerFormularioAlta", "css:finder"],
+        ["xpath=//img[@title='Añadir Cuadro']", "xpath:img"],
+        ["xpath=//img[@id='btnVerFormularioAlta']", "xpath:attributes"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "739e4f69-0d95-4df8-974b-ea3c19a9cbe7",
+      "comment": "",
+      "command": "type",
+      "target": "id=titulo",
+      "targets": [
+        ["id=titulo", "id"],
+        ["name=titulo", "name"],
+        ["css=#titulo", "css:finder"],
+        ["xpath=//input[@id='titulo']", "xpath:attributes"],
+        ["xpath=//form[@id='formularioAlta']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Las Meninas"
+    }, {
+      "id": "6053c38c-eeb8-4dfa-9c3d-4b5ebee1b1af",
+      "comment": "",
+      "command": "type",
+      "target": "id=autor",
+      "targets": [
+        ["id=autor", "id"],
+        ["name=autor", "name"],
+        ["css=#autor", "css:finder"],
+        ["xpath=//input[@id='autor']", "xpath:attributes"],
+        ["xpath=//form[@id='formularioAlta']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "Diego Velázquez"
+    }, {
+      "id": "6028bfda-1175-4014-a6db-d5f9577e9a2d",
+      "comment": "",
+      "command": "click",
+      "target": "css=#imagenes > input",
+      "targets": [
+        ["css=#imagenes > input", "css:finder"],
+        ["xpath=//input[@type='file']", "xpath:attributes"],
+        ["xpath=//fieldset[@id='imagenes']/input", "xpath:idRelative"],
+        ["xpath=//fieldset/input", "xpath:position"]
+      ],
+      "value": "meninas.jpg"
+    }, {
+      "id": "a80d5cef-ea64-4f08-854c-92b5cb885d3a",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(3)",
+      "targets": [
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@type='file']", "xpath:attributes"],
+        ["xpath=//fieldset[@id='imagenes']/input", "xpath:idRelative"],
+        ["xpath=//fieldset/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "653fa206-410f-4db3-8eb5-b84fb5272cf7",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(3)",
+      "targets": [
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@type='file']", "xpath:attributes"],
+        ["xpath=//fieldset[@id='imagenes']/input", "xpath:idRelative"],
+        ["xpath=//fieldset/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c90f5733-c987-4bcd-a67a-a043f8c921c0",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(4)",
+      "targets": [
+        ["css=input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@type='file']", "xpath:attributes"],
+        ["xpath=//fieldset[@id='imagenes']/input", "xpath:idRelative"],
+        ["xpath=//fieldset/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5b84cde-b447-4666-9e59-3332259f4dfd",
+      "comment": "",
+      "command": "click",
+      "target": "name=medidaConMarco",
+      "targets": [
+        ["name=medidaConMarco", "name"],
+        ["css=.pequeno:nth-child(8)", "css:finder"],
+        ["xpath=//input[@name='medidaConMarco']", "xpath:attributes"],
+        ["xpath=//form[@id='formularioAlta']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dfe8fdf8-c51f-4fd4-bcef-40bead1220cb",
+      "comment": "",
+      "command": "type",
+      "target": "name=medidaConMarco",
+      "targets": [
+        ["name=medidaConMarco", "name"],
+        ["css=.pequeno:nth-child(8)", "css:finder"],
+        ["xpath=//input[@name='medidaConMarco']", "xpath:attributes"],
+        ["xpath=//form[@id='formularioAlta']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "Medida con Marco"
+    }, {
+      "id": "0ee33c71-6fc0-44f4-9c45-032eafa1e40c",
+      "comment": "",
+      "command": "type",
+      "target": "name=medidaSinMarco",
+      "targets": [
+        ["name=medidaSinMarco", "name"],
+        ["css=.pequeno:nth-child(11)", "css:finder"],
+        ["xpath=//input[@name='medidaSinMarco']", "xpath:attributes"],
+        ["xpath=//form[@id='formularioAlta']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "Medida sin Marco"
+    }, {
+      "id": "3484ac5e-ff23-44ac-ac97-3e2576563de6",
+      "comment": "",
+      "command": "type",
+      "target": "name=propietario",
+      "targets": [
+        ["name=propietario", "name"],
+        ["css=.pequeno:nth-child(14)", "css:finder"],
+        ["xpath=//input[@name='propietario']", "xpath:attributes"],
+        ["xpath=//form[@id='formularioAlta']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "Propietario"
+    }, {
+      "id": "88f564e7-d74f-4987-8bc7-c445b5b37270",
+      "comment": "",
+      "command": "type",
+      "target": "name=marcas",
+      "targets": [
+        ["name=marcas", "name"],
+        ["css=textarea:nth-child(17)", "css:finder"],
+        ["xpath=//textarea[@name='marcas']", "xpath:attributes"],
+        ["xpath=//form[@id='formularioAlta']/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Marcas"
+    }, {
+      "id": "d46410fd-a2e5-445c-9e2b-bf5df5d669e7",
+      "comment": "",
+      "command": "type",
+      "target": "name=estadoConservacion",
+      "targets": [
+        ["name=estadoConservacion", "name"],
+        ["css=textarea:nth-child(21)", "css:finder"],
+        ["xpath=//textarea[@name='estadoConservacion']", "xpath:attributes"],
+        ["xpath=//form[@id='formularioAlta']/textarea[2]", "xpath:idRelative"],
+        ["xpath=//textarea[2]", "xpath:position"]
+      ],
+      "value": "Estado de Conservación."
+    }, {
+      "id": "780a01f7-c262-465d-8ceb-7f374ba94441",
+      "comment": "",
+      "command": "type",
+      "target": "name=materiales",
+      "targets": [
+        ["name=materiales", "name"],
+        ["css=.grande:nth-child(24)", "css:finder"],
+        ["xpath=//input[@name='materiales']", "xpath:attributes"],
+        ["xpath=//form[@id='formularioAlta']/input[6]", "xpath:idRelative"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": "Materiales"
+    }, {
+      "id": "fa9b5fea-b5e1-474a-b6d0-12cb6663a986",
+      "comment": "",
+      "command": "type",
+      "target": "name=tecnica",
+      "targets": [
+        ["name=tecnica", "name"],
+        ["css=.grande:nth-child(27)", "css:finder"],
+        ["xpath=//input[@name='tecnica']", "xpath:attributes"],
+        ["xpath=//form[@id='formularioAlta']/input[7]", "xpath:idRelative"],
+        ["xpath=//input[7]", "xpath:position"]
+      ],
+      "value": "Óleo sobre lienzo."
+    }, {
+      "id": "aaa4742d-50b9-417c-a02e-9e6c91d38e4a",
+      "comment": "",
+      "command": "type",
+      "target": "name=descripcionObra",
+      "targets": [
+        ["name=descripcionObra", "name"],
+        ["css=textarea:nth-child(31)", "css:finder"],
+        ["xpath=//textarea[@name='descripcionObra']", "xpath:attributes"],
+        ["xpath=//form[@id='formularioAlta']/textarea[3]", "xpath:idRelative"],
+        ["xpath=//textarea[3]", "xpath:position"]
+      ],
+      "value": "Espectacular"
+    }, {
+      "id": "d8a07372-91e2-4edb-9936-fa1c9fb3bf4b",
+      "comment": "",
+      "command": "type",
+      "target": "name=descripcionAutor",
+      "targets": [
+        ["name=descripcionAutor", "name"],
+        ["css=textarea:nth-child(35)", "css:finder"],
+        ["xpath=//textarea[@name='descripcionAutor']", "xpath:attributes"],
+        ["xpath=//form[@id='formularioAlta']/textarea[4]", "xpath:idRelative"],
+        ["xpath=//textarea[4]", "xpath:position"]
+      ],
+      "value": "Muy conocido, pero melenudo"
+    }, {
+      "id": "d56dee0b-b322-4052-891a-ba9a30e94840",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnAceptar",
+      "targets": [
+        ["id=btnAceptar", "id"],
+        ["css=#btnAceptar", "css:finder"],
+        ["xpath=//button[@id='btnAceptar']", "xpath:attributes"],
+        ["xpath=//form[@id='formularioAlta']/p/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Aceptar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1a6fc2dd-05b3-44b6-8e99-c98c2a400f00",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "css=.cuadro > img",
+      "targets": [
+        ["css=.cuadro > img", "css:finder"],
+        ["xpath=//div[@id='listaCuadros']/div/img", "xpath:idRelative"],
+        ["xpath=//main/div/div/img", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "89d0a6fb-decc-4d7d-89b9-764726006345",
+      "comment": "",
+      "command": "click",
+      "target": "css=p:nth-child(2)",
+      "targets": [
+        ["css=p:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='listaCuadros']/div/p", "xpath:idRelative"],
+        ["xpath=//p", "xpath:position"],
+        ["xpath=//p[contains(.,'Las Meninas')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d2911916-488d-462f-a3c6-09af12f132e1",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=p:nth-child(2)",
+      "targets": [
+        ["css=p:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='listaCuadros']/div/p", "xpath:idRelative"],
+        ["xpath=//p", "xpath:position"],
+        ["xpath=//p[contains(.,'Las Meninas')]", "xpath:innerText"]
+      ],
+      "value": "Las Meninas"
+    }, {
+      "id": "8587c7b4-64bc-4afb-abac-1f0353569541",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=p:nth-child(3)",
+      "targets": [
+        ["css=p:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='listaCuadros']/div/p[2]", "xpath:idRelative"],
+        ["xpath=//p[2]", "xpath:position"],
+        ["xpath=//p[contains(.,'Diego Velázquez')]", "xpath:innerText"]
+      ],
+      "value": "Diego Velázquez"
+    }, {
+      "id": "2ce69005-5bac-4bfc-8ed5-e4efccbe6139",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.cuadro > img",
+      "targets": [
+        ["css=.cuadro > img", "css:finder"],
+        ["xpath=//div[@id='listaCuadros']/div/img", "xpath:idRelative"],
+        ["xpath=//div/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "3efbca39-59bd-4585-9871-cd42d87c6de6",
+    "name": "Eliminar",
+    "commands": [{
+      "id": "6d09686a-8b58-4a13-8fb4-1ab4563a4021",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fca51e35-8c83-4bd2-aae2-d08a618e9ee7",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "655x618",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c2645b0f-de03-4010-9eda-2f00c7528a2a",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=img:nth-child(3)",
+      "targets": [
+        ["css=img:nth-child(3)", "css:finder"],
+        ["xpath=//img[@title='Eliminar']", "xpath:img"],
+        ["xpath=//div[@id='listaCuadros']/div/p[3]/img[3]", "xpath:idRelative"],
+        ["xpath=//img[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ae7559dc-55d9-4e12-9fe1-f6dbfc38c77d",
+      "comment": "",
+      "command": "chooseOkOnNextConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1f889f92-f64e-453f-bc30-d8adc906a0c9",
+      "comment": "",
+      "command": "click",
+      "target": "css=img:nth-child(3)",
+      "targets": [
+        ["css=img:nth-child(3)", "css:finder"],
+        ["xpath=//img[@title='Eliminar']", "xpath:img"],
+        ["xpath=//div[@id='listaCuadros']/div/p[3]/img[3]", "xpath:idRelative"],
+        ["xpath=//img[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a57f7a61-4116-41f1-b952-aaff77b95446",
+      "comment": "",
+      "command": "assertConfirmation",
+      "target": "¿Realmente quiere eliminar este cuadro?\n(la operación no puede deshacerse)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "03a955e9-8c4b-401c-a2b8-2a3883c8f54d",
+      "comment": "",
+      "command": "webdriverChooseOkOnVisibleConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "00b9b1c8-17d6-4936-916d-0360b336bde9",
+      "comment": "",
+      "command": "assertElementNotPresent",
+      "target": "css=img:nth-child(3)",
+      "targets": [
+        ["css=html", "css:finder"],
+        ["xpath=//html", "xpath:position"],
+        ["xpath=//html[contains(.,'Modigliani')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "0947c41f-d197-465b-925e-d79e15445278",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["775a273d-c734-4f48-a7f7-bda38000425d", "d6ea5f64-62bb-4055-b9d6-bb41e151929e", "3efbca39-59bd-4585-9871-cd42d87c6de6"]
+  }],
+  "urls": ["http://modigliani.local/"],
+  "plugins": []
+}
