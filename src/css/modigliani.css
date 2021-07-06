@@ -4,6 +4,14 @@ h1 {
 	color: darkred;
 }
 
+p{
+	font-family: arial;
+}
+
+#consulta strong{
+	color: darkred;
+}
+
 nav {
 	border-bottom: 1px solid grey;
 }
@@ -97,6 +105,13 @@ button.cancelar{
 }
 button.cancelar:hover{
   background-color: red;
+}
+
+button.otros{
+  background-color: blue;
+}
+button.otros:hover{
+  background-color: lightblue;
 }
 
 #formularioAlta {

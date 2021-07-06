@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>FormularioAlta<span class="signature">()</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>FormularioAlta<span class="signature">(controlador, dirVistas)</span><span class="type-signature"></span></h2>
         
             <div class="class-description">Vista del formulario de alta de cuadro.</div>
         
@@ -45,7 +45,7 @@
     
 
     
-    <h4 class="name" id="FormularioAlta"><span class="type-signature"></span>new FormularioAlta<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="FormularioAlta"><span class="type-signature"></span>new FormularioAlta<span class="signature">(controlador, dirVistas)</span><span class="type-signature"></span></h4>
     
 
     
@@ -62,6 +62,78 @@
 
 
 
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>controlador</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Controlador de la vista.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dirVistas</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Directorio de vistas.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -169,9 +241,9 @@
 
 <div class="description">
     Manejador del evento Aceptar.
-		Lee los valores del formulario y los envía al controlador.
-		No hay validaciones.
-		Nota: No optamos por un input file múltiple porque complica la selección al usuario.
+  	Lee los valores del formulario y los envía al controlador.
+  	No hay validaciones.
+  	Nota: No optamos por un input file múltiple porque complica la selección al usuario.
 </div>
 
 
@@ -215,7 +287,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="vistas_formularioalta.js.html">vistas/formularioalta.js</a>, <a href="vistas_formularioalta.js.html#line66">line 66</a>
+        <a href="vistas_formularioalta.js.html">vistas/formularioalta.js</a>, <a href="vistas_formularioalta.js.html#line67">line 67</a>
     </li></ul></dd>
     
 
@@ -259,7 +331,7 @@
 
 
 <div class="description">
-    Carga los datos del cuadro en el componente
+    Carga los datos del cuadro en la vista
 </div>
 
 
@@ -303,7 +375,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="vistas_formularioalta.js.html">vistas/formularioalta.js</a>, <a href="vistas_formularioalta.js.html#line19">line 19</a>
+        <a href="vistas_formularioalta.js.html">vistas/formularioalta.js</a>, <a href="vistas_formularioalta.js.html#line20">line 20</a>
     </li></ul></dd>
     
 
@@ -348,7 +420,7 @@
 
 <div class="description">
     Elimina una imagen del formulario.
-		Elimina la imagen de this.imagenes y elimina el div que muestra el thumb.
+  	Elimina la imagen de this.imagenes y elimina el div que muestra el thumb.
 </div>
 
 
@@ -464,7 +536,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="vistas_formularioalta.js.html">vistas/formularioalta.js</a>, <a href="vistas_formularioalta.js.html#line135">line 135</a>
+        <a href="vistas_formularioalta.js.html">vistas/formularioalta.js</a>, <a href="vistas_formularioalta.js.html#line121">line 121</a>
     </li></ul></dd>
     
 
@@ -552,7 +624,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="vistas_formularioalta.js.html">vistas/formularioalta.js</a>, <a href="vistas_formularioalta.js.html#line43">line 43</a>
+        <a href="vistas_formularioalta.js.html">vistas/formularioalta.js</a>, <a href="vistas_formularioalta.js.html#line44">line 44</a>
     </li></ul></dd>
     
 
@@ -596,7 +668,7 @@
 
 
 <div class="description">
-    Hace visible el componente
+    Hace visible la vista
 </div>
 
 
@@ -640,7 +712,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="vistas_formularioalta.js.html">vistas/formularioalta.js</a>, <a href="vistas_formularioalta.js.html#line35">line 35</a>
+        <a href="vistas_formularioalta.js.html">vistas/formularioalta.js</a>, <a href="vistas_formularioalta.js.html#line36">line 36</a>
     </li></ul></dd>
     
 
@@ -684,7 +756,7 @@
 
 
 <div class="description">
-    Oculta el componente
+    Oculta la vista
 </div>
 
 
@@ -728,7 +800,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="vistas_formularioalta.js.html">vistas/formularioalta.js</a>, <a href="vistas_formularioalta.js.html#line57">line 57</a>
+        <a href="vistas_formularioalta.js.html">vistas/formularioalta.js</a>, <a href="vistas_formularioalta.js.html#line58">line 58</a>
     </li></ul></dd>
     
 
@@ -825,7 +897,7 @@
             
 
             <td class="description last">Evento asociado.
-		Ref: https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications</td>
+  	Ref: https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications</td>
         </tr>
 
     
@@ -866,7 +938,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="vistas_formularioalta.js.html">vistas/formularioalta.js</a>, <a href="vistas_formularioalta.js.html#line97">line 97</a>
+        <a href="vistas_formularioalta.js.html">vistas/formularioalta.js</a>, <a href="vistas_formularioalta.js.html#line79">line 79</a>
     </li></ul></dd>
     
 
@@ -912,13 +984,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Ajax.html">Ajax</a></li><li><a href="BarraNavegacion.html">BarraNavegacion</a></li><li><a href="Componente.html">Componente</a></li><li><a href="Cuadro.html">Cuadro</a></li><li><a href="FormularioAlta.html">FormularioAlta</a></li><li><a href="ListaCuadros.html">ListaCuadros</a></li><li><a href="Modigliani.html">Modigliani</a></li><li><a href="TarjetaCuadro.html">TarjetaCuadro</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Ajax.html">Ajax</a></li><li><a href="BarraNavegacion.html">BarraNavegacion</a></li><li><a href="Consulta.html">Consulta</a></li><li><a href="Cuadro.html">Cuadro</a></li><li><a href="FormularioAlta.html">FormularioAlta</a></li><li><a href="ListaCuadros.html">ListaCuadros</a></li><li><a href="Modigliani.html">Modigliani</a></li><li><a href="TarjetaCuadro.html">TarjetaCuadro</a></li><li><a href="Vista.html">Vista</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri Jul 02 2021 18:06:48 GMT+0200 (hora de verano de Europa central)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Jul 06 2021 08:20:31 GMT+0200 (hora de verano de Europa central)
 </footer>
 
 <script> prettyPrint(); </script>

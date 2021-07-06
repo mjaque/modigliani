@@ -1,17 +1,21 @@
 'use strict'
 
-import { Componente } from './componente.js'
+import { Vista } from './vista.js'
 import { TarjetaCuadro } from './tarjetacuadro.js'
 
 /** Vista del formulario de alta de cuadro.
 **/
-export class ListaCuadros extends Componente{
+export class ListaCuadros extends Vista{
+
 	/** Constructor de la clase
+			@param controlador {Object} Controlador de la vista.
+			@param dirVistas {String} Directorio de vistas.
 	**/
-	constructor(){
-		super('js/vistas/listacuadros.html')
-		this.tarjetas = []	//Array de tarjetas de los cuadros
-	}
+constructor(controlador, dirVistas) {
+  super(controlador, dirVistas + '/listacuadros.html')
+	this.dirVistas = dirVistas
+  this.tarjetas = [] //Array de tarjetas de los cuadros
+}
 
 	/**	Carga ...
 	**/
@@ -22,9 +26,9 @@ export class ListaCuadros extends Componente{
 		//Carga de datos
 
 		//Asociación de Eventos
-		
+
 	}
-	
+
 	/** Carga las tarjetas de los cuadros.
 		@param cuadros {Object[]} Array de objetos con los datos de los cuadros a mostrar
 		@return Devuelve una Promise.
@@ -33,7 +37,7 @@ export class ListaCuadros extends Componente{
 		this.vaciar()
 		const promesas = []	//Creamos un array de promesas
 		for (let i = 0; i < cuadros.length; i++){
-			let tarjeta = new TarjetaCuadro(cuadros[i], this)
+			let tarjeta = new TarjetaCuadro(this, this.dirVistas, cuadros[i])
 			this.tarjetas.push(tarjeta)
 			promesas.push(tarjeta.cargar())
 		}
@@ -46,7 +50,7 @@ export class ListaCuadros extends Componente{
 			resolve(true)
 			})
 	}
-	
+
 	/** Elimina las tarjetas.
 		Las quita del div y del array de tarjetas.
 	**/
@@ -59,15 +63,30 @@ export class ListaCuadros extends Componente{
 		this.tarjetas = []
 	}
 
-	/** Hace visible el componente
+	/** Hace visible la vista
 	**/
 	mostrar(){
 		this.div.style.display = 'flex'
 	}
-	
-	/** Oculta el componente
+
+	/** Oculta la vista
 	**/
 	ocultar(){
 		this.div.style.display = 'none'
 	}
+
+	/** Muestra los detalles de un cuadro
+			@param Cuadro {Cuadro} Cuadro a eliminar.
+	**/
+	pedirConsultarCuadro(cuadro){
+		this.controlador.pedirConsultarCuadro(cuadro)
+	}
+
+	/** Elimina un cuadro
+			@param Cuadro {Cuadro} Cuadro a eliminar.
+	**/
+	pedirEliminarCuadro(cuadro){
+		this.controlador.pedirEliminarCuadro(cuadro)
+	}
+
 }

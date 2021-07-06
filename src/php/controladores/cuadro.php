@@ -6,6 +6,14 @@ namespace modigliani\controladores;
 	Controlador de Cuadro.
 **/
 class Cuadro{
+  private static $dirImg;
+
+  /** Establece el valor del path del directorio de imágenes.
+      Es un método estático para la inyección de dependencias.
+   */
+  public static function setDirImg($url){
+    self::$dirImg = $url;
+  }
 
 	/**
 		Constructor de la clase.
@@ -14,13 +22,17 @@ class Cuadro{
 
 public function get(){
   $bd = \modigliani\dao\BD::getInstance();
-  $body = json_decode(file_get_contents("php://input"), true);
   $respuesta = new \stdClass();
-  if (is_null($body)){  //Listar todos los cuadros
+  //var_dump($_GET);
+  if (count($_GET) == 0){  //Listar todos los cuadros
     $respuesta->datos = $bd->listarCuadros();
     $respuesta->resultado = "OK";
   }
-  $db = null;	//Cierre de BD
+  else {
+    $respuesta->datos = $bd->verCuadro($_GET['id']);
+    $respuesta->resultado = "OK";
+  }
+  $bd = null;	//Cierre de BD
   $this->responder($respuesta);
 }
 
@@ -30,7 +42,7 @@ public function post(){
     $bd = \modigliani\dao\BD::getInstance();
     $respuesta->datos = $bd->insertarCuadro($_POST, $_FILES);
     $respuesta->resultado = "OK";
-    $db = null;	//Cierre de BD
+    $bd = null;	//Cierre de BD
   }
   catch(\Exception $e){
     $respuesta->resultado='ERROR';
@@ -40,48 +52,20 @@ public function post(){
 }
 
 public function delete(){
-  global $configuracion;
   $body = json_decode(file_get_contents("php://input"), true);
   $idCuadro = $body['id'];
   $bd = \modigliani\dao\BD::getInstance();
   $bd->eliminarCuadro($idCuadro);
 
   //Borrar las imágenes
-  foreach( glob($configuracion['general']['dir_img'].DIRECTORY_SEPARATOR.$idCuadro.'_*') as $imagen)
+  foreach( glob(Cuadro::$dirImg.DIRECTORY_SEPARATOR.$idCuadro.'_*') as $imagen)
     unlink($imagen);
 
   $respuesta = new \stdClass();
   $respuesta->resultado = "OK";
-  $db = null;	//Cierre de BD
+  $bd = null;	//Cierre de BD
   $this->responder($respuesta);
 }
-
-	/**
-		Envía un json con la lista de cuadros.
-	**/
-	public function _listarCuadros(){
-		global $configuracion;
-
-		$respuesta = new \stdClass;
-		$lista = array();
-		try{
-			$directorio = $configuracion['general']['dir_data'];
-			$contenido = array_diff(scandir($directorio), array('..', '.', 'img'));
-			foreach ($contenido as $clave => $nombre_fichero){
-				$json = file_get_contents($directorio.DIRECTORY_SEPARATOR.$nombre_fichero);
-				$cuadro = json_decode($json);
-				$cuadro->id = substr($nombre_fichero, 0, strrpos($nombre_fichero, "."));
-				array_push($lista, $cuadro);
-			}
-			$respuesta->json = json_encode($lista);
-			$respuesta->resultado='OK';
-		}
-    catch(\Exception $e){
-      $respuesta->resultado='ERROR';
-      $respuesta->mensaje=$e;
-    }
-    $this->responder($respuesta);
-	}
 
   private function responder($respuesta){
     header('Content-Type: application/json');

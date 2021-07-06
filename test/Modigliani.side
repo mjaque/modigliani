@@ -424,6 +424,231 @@
       ],
       "value": ""
     }]
+  }, {
+    "id": "72e59b53-ebb5-4f1e-981f-1e8ec65be4ae",
+    "name": "Cancelar Alta",
+    "commands": [{
+      "id": "4b8ec4de-3bfe-4bb7-8c54-be8d2549d288",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "57fd4652-a423-4361-ad63-71e09d84f619",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "655x620",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0b6899aa-b55b-4ae9-8e13-798ba568693f",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnVerFormularioAlta",
+      "targets": [
+        ["id=btnVerFormularioAlta", "id"],
+        ["css=#btnVerFormularioAlta", "css:finder"],
+        ["xpath=//img[@title='Añadir Cuadro']", "xpath:img"],
+        ["xpath=//img[@id='btnVerFormularioAlta']", "xpath:attributes"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "896c732d-c31e-4ddd-8827-230e6d1ddfce",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnCancelar",
+      "targets": [
+        ["id=btnCancelar", "id"],
+        ["css=#btnCancelar", "css:finder"],
+        ["xpath=//button[@id='btnCancelar']", "xpath:attributes"],
+        ["xpath=//form[@id='formularioAlta']/p/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Cancelar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fea4a0b2-5412-4bb9-9193-1367dc963257",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "id=listaCuadros",
+      "targets": [],
+      "value": "3000"
+    }, {
+      "id": "f1d3e90e-b38f-439d-84b0-7c5e4bc8a318",
+      "comment": "",
+      "command": "waitForElementNotVisible",
+      "target": "id=formularioAlta",
+      "targets": [],
+      "value": "3000"
+    }]
+  }, {
+    "id": "713b8844-b004-49f1-902a-c435f7967582",
+    "name": "Consultar",
+    "commands": [{
+      "id": "85ab01d6-6b12-4c02-8274-44b89ef93366",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "da6e8556-862d-408d-8f7c-b4f70c75410b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "655x620",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e097cd10-88c1-4706-8fb6-7c8c6d953461",
+      "comment": "",
+      "command": "click",
+      "target": "css=.botones > img:nth-child(1)",
+      "targets": [
+        ["css=.botones > img:nth-child(1)", "css:finder"],
+        ["xpath=//img[@title='Detalles']", "xpath:img"],
+        ["xpath=//div[@id='listaCuadros']/div/p[3]/img", "xpath:idRelative"],
+        ["xpath=//p[3]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "94d7de57-5bfd-40e5-be2b-c5ec110e900e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=p:nth-child(1) > span",
+      "targets": [
+        ["css=p:nth-child(1) > span", "css:finder"],
+        ["xpath=//div[@id='consulta']/p/span", "xpath:idRelative"],
+        ["xpath=//span", "xpath:position"],
+        ["xpath=//span[contains(.,'Las Meninas')]", "xpath:innerText"]
+      ],
+      "value": "Las Meninas"
+    }, {
+      "id": "7e2d36be-f413-413f-9787-8824feda136c",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=p:nth-child(2) > span",
+      "targets": [
+        ["css=p:nth-child(2) > span", "css:finder"],
+        ["xpath=//div[@id='consulta']/p[2]/span", "xpath:idRelative"],
+        ["xpath=//p[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Diego Velázquez')]", "xpath:innerText"]
+      ],
+      "value": "Diego Velázquez"
+    }, {
+      "id": "73346eb8-ece1-4f5e-9b0a-b8a7f3fb9a0d",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=img.imagen",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "316cb0dc-6e35-42c8-a7cd-bc91c2820f80",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=p:nth-child(4) > span",
+      "targets": [
+        ["css=p:nth-child(4) > span", "css:finder"],
+        ["xpath=//div[@id='consulta']/p[3]/span", "xpath:idRelative"],
+        ["xpath=//p[3]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Medida con Marco')]", "xpath:innerText"]
+      ],
+      "value": "Medida con Marco"
+    }, {
+      "id": "fde6d00d-b57f-49c4-a44c-86d0fc12b826",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=p:nth-child(5) > span",
+      "targets": [
+        ["css=p:nth-child(5) > span", "css:finder"],
+        ["xpath=//div[@id='consulta']/p[4]/span", "xpath:idRelative"],
+        ["xpath=//p[4]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Medida sin Marco')]", "xpath:innerText"]
+      ],
+      "value": "Medida sin Marco"
+    }, {
+      "id": "194cf80a-9969-4332-b026-55b70034520a",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=p:nth-child(6) > span",
+      "targets": [
+        ["css=p:nth-child(6) > span", "css:finder"],
+        ["xpath=//div[@id='consulta']/p[5]/span", "xpath:idRelative"],
+        ["xpath=//p[5]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Propietario')]", "xpath:innerText"]
+      ],
+      "value": "Propietario"
+    }, {
+      "id": "f445e8fe-820a-41cc-9761-0bfa5001b0c9",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=p:nth-child(8) > span",
+      "targets": [
+        ["css=p:nth-child(8) > span", "css:finder"],
+        ["xpath=//div[@id='consulta']/p[7]/span", "xpath:idRelative"],
+        ["xpath=//p[7]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Marcas')]", "xpath:innerText"]
+      ],
+      "value": "Marcas"
+    }, {
+      "id": "9f5365c1-97aa-4c6c-a233-b1ad5be19f7d",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=p:nth-child(10) > span",
+      "targets": [
+        ["css=p:nth-child(10) > span", "css:finder"],
+        ["xpath=//div[@id='consulta']/p[9]/span", "xpath:idRelative"],
+        ["xpath=//p[9]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Estado de Conservación.')]", "xpath:innerText"]
+      ],
+      "value": "Estado de Conservación."
+    }, {
+      "id": "b5aaf95b-3c1b-48e1-8a7c-dcd29b3bd2d9",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=p:nth-child(11) > span",
+      "targets": [
+        ["css=p:nth-child(11) > span", "css:finder"],
+        ["xpath=//div[@id='consulta']/p[10]/span", "xpath:idRelative"],
+        ["xpath=//p[10]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Materiales')]", "xpath:innerText"]
+      ],
+      "value": "Materiales"
+    }, {
+      "id": "ec08879f-2347-4f49-9d57-7a79aa6ae073",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=p:nth-child(12) > span",
+      "targets": [
+        ["css=p:nth-child(12) > span", "css:finder"],
+        ["xpath=//div[@id='consulta']/p[11]/span", "xpath:idRelative"],
+        ["xpath=//p[11]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Óleo sobre lienzo.')]", "xpath:innerText"]
+      ],
+      "value": "Óleo sobre lienzo."
+    }, {
+      "id": "1dc8e73c-fb6c-4d87-a1c9-545236b5440d",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnVolver",
+      "targets": [
+        ["id=btnVolver", "id"],
+        ["css=#btnVolver", "css:finder"],
+        ["xpath=//button[@id='btnVolver']", "xpath:attributes"],
+        ["xpath=//div[@id='consulta']/p[16]/button", "xpath:idRelative"],
+        ["xpath=//p[16]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Volver')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3bfb8bc2-feeb-4418-abc3-a4597b76752e",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=listaCuadros",
+      "targets": [],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "0947c41f-d197-465b-925e-d79e15445278",
@@ -431,7 +656,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["775a273d-c734-4f48-a7f7-bda38000425d", "d6ea5f64-62bb-4055-b9d6-bb41e151929e", "3efbca39-59bd-4585-9871-cd42d87c6de6"]
+    "tests": ["775a273d-c734-4f48-a7f7-bda38000425d", "d6ea5f64-62bb-4055-b9d6-bb41e151929e", "72e59b53-ebb5-4f1e-981f-1e8ec65be4ae", "713b8844-b004-49f1-902a-c435f7967582", "3efbca39-59bd-4585-9871-cd42d87c6de6"]
   }],
   "urls": ["http://modigliani.local/"],
   "plugins": []

@@ -1,7 +1,10 @@
-- Alta: 
-	Insertar en BBDD - Confirmar.
-	Mostrar Lista de Cuadros y Mensaje Confirmación.
-	Alta con Imágenes.
-- Baja:
-- Modificación:
+V 1.0 --------------------------
+- CU. Listar: HECHO
+- CU. Eliminar: HECHO
+- CU. Alta: HECHO *
+- CU. Consultar.
+- CU. Editar.
 
+V 2.0 --------------------------
+- Anexos
+- Préstamos

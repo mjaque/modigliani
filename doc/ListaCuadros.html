@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>ListaCuadros<span class="signature">()</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>ListaCuadros<span class="signature">(controlador, dirVistas)</span><span class="type-signature"></span></h2>
         
             <div class="class-description">Vista del formulario de alta de cuadro.</div>
         
@@ -45,7 +45,7 @@
     
 
     
-    <h4 class="name" id="ListaCuadros"><span class="type-signature"></span>new ListaCuadros<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="ListaCuadros"><span class="type-signature"></span>new ListaCuadros<span class="signature">(controlador, dirVistas)</span><span class="type-signature"></span></h4>
     
 
     
@@ -62,6 +62,78 @@
 
 
 
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>controlador</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Controlador de la vista.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dirVistas</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Directorio de vistas.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -261,7 +333,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="vistas_listacuadros.js.html">vistas/listacuadros.js</a>, <a href="vistas_listacuadros.js.html#line32">line 32</a>
+        <a href="vistas_listacuadros.js.html">vistas/listacuadros.js</a>, <a href="vistas_listacuadros.js.html#line36">line 36</a>
     </li></ul></dd>
     
 
@@ -359,7 +431,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="vistas_listacuadros.js.html">vistas/listacuadros.js</a>, <a href="vistas_listacuadros.js.html#line18">line 18</a>
+        <a href="vistas_listacuadros.js.html">vistas/listacuadros.js</a>, <a href="vistas_listacuadros.js.html#line22">line 22</a>
     </li></ul></dd>
     
 
@@ -403,7 +475,7 @@
 
 
 <div class="description">
-    Hace visible el componente
+    Hace visible la vista
 </div>
 
 
@@ -447,7 +519,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="vistas_listacuadros.js.html">vistas/listacuadros.js</a>, <a href="vistas_listacuadros.js.html#line64">line 64</a>
+        <a href="vistas_listacuadros.js.html">vistas/listacuadros.js</a>, <a href="vistas_listacuadros.js.html#line68">line 68</a>
     </li></ul></dd>
     
 
@@ -491,7 +563,7 @@
 
 
 <div class="description">
-    Oculta el componente
+    Oculta la vista
 </div>
 
 
@@ -535,7 +607,281 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="vistas_listacuadros.js.html">vistas/listacuadros.js</a>, <a href="vistas_listacuadros.js.html#line70">line 70</a>
+        <a href="vistas_listacuadros.js.html">vistas/listacuadros.js</a>, <a href="vistas_listacuadros.js.html#line74">line 74</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="pedirConsultarCuadro"><span class="type-signature"></span>pedirConsultarCuadro<span class="signature">(Cuadro)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Muestra los detalles de un cuadro
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>Cuadro</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Cuadro.html">Cuadro</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Cuadro a eliminar.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vistas_listacuadros.js.html">vistas/listacuadros.js</a>, <a href="vistas_listacuadros.js.html#line81">line 81</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="pedirEliminarCuadro"><span class="type-signature"></span>pedirEliminarCuadro<span class="signature">(Cuadro)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Elimina un cuadro
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>Cuadro</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Cuadro.html">Cuadro</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Cuadro a eliminar.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vistas_listacuadros.js.html">vistas/listacuadros.js</a>, <a href="vistas_listacuadros.js.html#line88">line 88</a>
     </li></ul></dd>
     
 
@@ -624,7 +970,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="vistas_listacuadros.js.html">vistas/listacuadros.js</a>, <a href="vistas_listacuadros.js.html#line53">line 53</a>
+        <a href="vistas_listacuadros.js.html">vistas/listacuadros.js</a>, <a href="vistas_listacuadros.js.html#line57">line 57</a>
     </li></ul></dd>
     
 
@@ -670,13 +1016,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Ajax.html">Ajax</a></li><li><a href="BarraNavegacion.html">BarraNavegacion</a></li><li><a href="Componente.html">Componente</a></li><li><a href="Cuadro.html">Cuadro</a></li><li><a href="FormularioAlta.html">FormularioAlta</a></li><li><a href="ListaCuadros.html">ListaCuadros</a></li><li><a href="Modigliani.html">Modigliani</a></li><li><a href="TarjetaCuadro.html">TarjetaCuadro</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Ajax.html">Ajax</a></li><li><a href="BarraNavegacion.html">BarraNavegacion</a></li><li><a href="Consulta.html">Consulta</a></li><li><a href="Cuadro.html">Cuadro</a></li><li><a href="FormularioAlta.html">FormularioAlta</a></li><li><a href="ListaCuadros.html">ListaCuadros</a></li><li><a href="Modigliani.html">Modigliani</a></li><li><a href="TarjetaCuadro.html">TarjetaCuadro</a></li><li><a href="Vista.html">Vista</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri Jul 02 2021 18:06:48 GMT+0200 (hora de verano de Europa central)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Jul 06 2021 08:20:31 GMT+0200 (hora de verano de Europa central)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -7,10 +7,25 @@ namespace modigliani\dao;
 **/
 class BD extends \SQLite3 {
 	private static $instance = null;
+	private static $url;
+	private static $dirImg;
+
+	/** Establece el valor de la URL de la Base de Datos.
+			Es un método estático para la inyección de dependencias.
+	 */
+	public static function setUrl($url){
+		self::$url = $url;
+	}
+
+	/** Establece el valor del path del directorio de imágenes.
+      Es un método estático para la inyección de dependencias.
+   */
+  public static function setDirImg($url){
+    self::$dirImg = $url;
+  }
 
 	private function __construct(){
-		global $configuracion;
-		$this->open($configuracion['base_datos']['url'], SQLITE3_OPEN_READWRITE);
+		$this->open(BD::$url, SQLITE3_OPEN_READWRITE);
   }
 
 	public static function getInstance(){
@@ -44,6 +59,30 @@ class BD extends \SQLite3 {
 			}
 		}
 		return $cuadros;
+	}
+
+	/** Devuelve los datos de un cuadro de la base de datos.
+			@param id {Integer} Identificador del cuadro.
+			@return
+	**/
+	public function verCuadro($id){
+		$sentencia = $this->prepare("SELECT id, titulo, autor, medidaConMarco, medidaSinMarco, marcas, propietario, estadoConservacion, materiales, tecnica, descripcionObra, descripcionAutor FROM Cuadro WHERE id = :id");
+		if (!$sentencia) throw new \Exception($this->lastErrorMsg());
+		$sentencia->bindParam(":id", $id, SQLITE3_INTEGER);
+		$resultado = $sentencia->execute();
+		$cuadro = $resultado->fetchArray(SQLITE3_ASSOC);
+		$cuadro['anexos'] = [];
+
+		$sentencia = $this->prepare("SELECT idCuadro, id, url, descripcion FROM Anexo WHERE idCuadro = :id");
+		$sentencia->bindParam(":id", $id, SQLITE3_INTEGER);
+		if (!$sentencia) throw new \Exception($this->lastErrorMsg());
+		$resultado = $sentencia->execute();
+		if (!$resultado) throw new \Exception($this->lastErrorMsg());
+		$anexos = [];
+		while ($anexo = $resultado->fetchArray(SQLITE3_ASSOC))
+			array_push($cuadro['anexos'], $anexo);
+
+		return $cuadro;
 	}
 
 	public function insertarCuadro($cuadro, $imagenes){
@@ -82,14 +121,14 @@ class BD extends \SQLite3 {
 				$sentencia->bindParam(':url', $nombreImagen, SQLITE3_TEXT);
 				$sentencia->bindParam(':descripcion', $imagenes["imagen_$i"]['name'], SQLITE3_TEXT);
 
-				if (!move_uploaded_file($imagenes["imagen_$i"]['tmp_name'], 'db/img/'.$nombreImagen))
+				if (!move_uploaded_file($imagenes["imagen_$i"]['tmp_name'], BD::$dirImg.DIRECTORY_SEPARATOR.$nombreImagen))
 					throw new \Exception('Fallo al mover el fichero.');
 
-					if (!@$sentencia->execute())throw new \Exception($this->lastErrorMsg());
-				}
+				if (!@$sentencia->execute())throw new \Exception($this->lastErrorMsg());
+			}
 
-				$this->exec('COMMIT');
-				return $id;
+			$this->exec('COMMIT');
+			return $id;
 		}catch(\Exception $ex){
 			$this->exec('ROLLBACK');
 			throw $ex;
