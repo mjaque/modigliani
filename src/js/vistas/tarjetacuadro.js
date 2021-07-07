@@ -48,14 +48,20 @@ export class TarjetaCuadro extends Vista {
 
     //Asociación de Eventos
     this.doc.getElementsByTagName('img')[1].onclick = this.consultar.bind(this)
+    this.doc.getElementsByTagName('img')[2].onclick = this.editar.bind(this)
     this.doc.getElementsByTagName('img')[3].onclick = this.eliminar.bind(this)
   }
 
   /** Muestra los detalles del Cuadro.
    **/
   consultar() {
-    //Resaltamos cuadro seleccionado
     this.controlador.pedirConsultarCuadro(this.cuadro)
+  }
+
+  /** Edita el Cuadro seleccionado.
+   **/
+  editar() {
+    this.controlador.pedirEditarCuadro(this.cuadro)
   }
 
   /** Elimina el Cuadro.

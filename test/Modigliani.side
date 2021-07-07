@@ -81,7 +81,7 @@
         ["name=titulo", "name"],
         ["css=#titulo", "css:finder"],
         ["xpath=//input[@id='titulo']", "xpath:attributes"],
-        ["xpath=//form[@id='formularioAlta']/input", "xpath:idRelative"],
+        ["xpath=//form[@id='formulario']/input", "xpath:idRelative"],
         ["xpath=//input", "xpath:position"]
       ],
       "value": "Las Meninas"
@@ -95,7 +95,7 @@
         ["name=autor", "name"],
         ["css=#autor", "css:finder"],
         ["xpath=//input[@id='autor']", "xpath:attributes"],
-        ["xpath=//form[@id='formularioAlta']/input[2]", "xpath:idRelative"],
+        ["xpath=//form[@id='formulario']/input[2]", "xpath:idRelative"],
         ["xpath=//input[2]", "xpath:position"]
       ],
       "value": "Diego Velázquez"
@@ -156,7 +156,7 @@
         ["name=medidaConMarco", "name"],
         ["css=.pequeno:nth-child(8)", "css:finder"],
         ["xpath=//input[@name='medidaConMarco']", "xpath:attributes"],
-        ["xpath=//form[@id='formularioAlta']/input[3]", "xpath:idRelative"],
+        ["xpath=//form[@id='formulario']/input[3]", "xpath:idRelative"],
         ["xpath=//input[3]", "xpath:position"]
       ],
       "value": ""
@@ -169,7 +169,7 @@
         ["name=medidaConMarco", "name"],
         ["css=.pequeno:nth-child(8)", "css:finder"],
         ["xpath=//input[@name='medidaConMarco']", "xpath:attributes"],
-        ["xpath=//form[@id='formularioAlta']/input[3]", "xpath:idRelative"],
+        ["xpath=//form[@id='formulario']/input[3]", "xpath:idRelative"],
         ["xpath=//input[3]", "xpath:position"]
       ],
       "value": "Medida con Marco"
@@ -182,7 +182,7 @@
         ["name=medidaSinMarco", "name"],
         ["css=.pequeno:nth-child(11)", "css:finder"],
         ["xpath=//input[@name='medidaSinMarco']", "xpath:attributes"],
-        ["xpath=//form[@id='formularioAlta']/input[4]", "xpath:idRelative"],
+        ["xpath=//form[@id='formulario']/input[4]", "xpath:idRelative"],
         ["xpath=//input[4]", "xpath:position"]
       ],
       "value": "Medida sin Marco"
@@ -195,7 +195,7 @@
         ["name=propietario", "name"],
         ["css=.pequeno:nth-child(14)", "css:finder"],
         ["xpath=//input[@name='propietario']", "xpath:attributes"],
-        ["xpath=//form[@id='formularioAlta']/input[5]", "xpath:idRelative"],
+        ["xpath=//form[@id='formulario']/input[5]", "xpath:idRelative"],
         ["xpath=//input[5]", "xpath:position"]
       ],
       "value": "Propietario"
@@ -208,7 +208,7 @@
         ["name=marcas", "name"],
         ["css=textarea:nth-child(17)", "css:finder"],
         ["xpath=//textarea[@name='marcas']", "xpath:attributes"],
-        ["xpath=//form[@id='formularioAlta']/textarea", "xpath:idRelative"],
+        ["xpath=//form[@id='formulario']/textarea", "xpath:idRelative"],
         ["xpath=//textarea", "xpath:position"]
       ],
       "value": "Marcas"
@@ -221,7 +221,7 @@
         ["name=estadoConservacion", "name"],
         ["css=textarea:nth-child(21)", "css:finder"],
         ["xpath=//textarea[@name='estadoConservacion']", "xpath:attributes"],
-        ["xpath=//form[@id='formularioAlta']/textarea[2]", "xpath:idRelative"],
+        ["xpath=//form[@id='formulario']/textarea[2]", "xpath:idRelative"],
         ["xpath=//textarea[2]", "xpath:position"]
       ],
       "value": "Estado de Conservación."
@@ -234,7 +234,7 @@
         ["name=materiales", "name"],
         ["css=.grande:nth-child(24)", "css:finder"],
         ["xpath=//input[@name='materiales']", "xpath:attributes"],
-        ["xpath=//form[@id='formularioAlta']/input[6]", "xpath:idRelative"],
+        ["xpath=//form[@id='formulario']/input[6]", "xpath:idRelative"],
         ["xpath=//input[6]", "xpath:position"]
       ],
       "value": "Materiales"
@@ -247,7 +247,7 @@
         ["name=tecnica", "name"],
         ["css=.grande:nth-child(27)", "css:finder"],
         ["xpath=//input[@name='tecnica']", "xpath:attributes"],
-        ["xpath=//form[@id='formularioAlta']/input[7]", "xpath:idRelative"],
+        ["xpath=//form[@id='formulario']/input[7]", "xpath:idRelative"],
         ["xpath=//input[7]", "xpath:position"]
       ],
       "value": "Óleo sobre lienzo."
@@ -260,7 +260,7 @@
         ["name=descripcionObra", "name"],
         ["css=textarea:nth-child(31)", "css:finder"],
         ["xpath=//textarea[@name='descripcionObra']", "xpath:attributes"],
-        ["xpath=//form[@id='formularioAlta']/textarea[3]", "xpath:idRelative"],
+        ["xpath=//form[@id='formulario']/textarea[3]", "xpath:idRelative"],
         ["xpath=//textarea[3]", "xpath:position"]
       ],
       "value": "Espectacular"
@@ -273,7 +273,7 @@
         ["name=descripcionAutor", "name"],
         ["css=textarea:nth-child(35)", "css:finder"],
         ["xpath=//textarea[@name='descripcionAutor']", "xpath:attributes"],
-        ["xpath=//form[@id='formularioAlta']/textarea[4]", "xpath:idRelative"],
+        ["xpath=//form[@id='formulario']/textarea[4]", "xpath:idRelative"],
         ["xpath=//textarea[4]", "xpath:position"]
       ],
       "value": "Muy conocido, pero melenudo"
@@ -286,7 +286,7 @@
         ["id=btnAceptar", "id"],
         ["css=#btnAceptar", "css:finder"],
         ["xpath=//button[@id='btnAceptar']", "xpath:attributes"],
-        ["xpath=//form[@id='formularioAlta']/p/button[2]", "xpath:idRelative"],
+        ["xpath=//form[@id='formulario']/p/button[2]", "xpath:idRelative"],
         ["xpath=//button[2]", "xpath:position"],
         ["xpath=//button[contains(.,'Aceptar')]", "xpath:innerText"]
       ],
@@ -463,7 +463,7 @@
         ["id=btnCancelar", "id"],
         ["css=#btnCancelar", "css:finder"],
         ["xpath=//button[@id='btnCancelar']", "xpath:attributes"],
-        ["xpath=//form[@id='formularioAlta']/p/button", "xpath:idRelative"],
+        ["xpath=//form[@id='formulario']/p/button", "xpath:idRelative"],
         ["xpath=//button", "xpath:position"],
         ["xpath=//button[contains(.,'Cancelar')]", "xpath:innerText"]
       ],
@@ -479,7 +479,7 @@
       "id": "f1d3e90e-b38f-439d-84b0-7c5e4bc8a318",
       "comment": "",
       "command": "waitForElementNotVisible",
-      "target": "id=formularioAlta",
+      "target": "id=formulario",
       "targets": [],
       "value": "3000"
     }]

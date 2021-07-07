@@ -2,7 +2,7 @@ V 1.0 --------------------------
 - CU. Listar: HECHO
 - CU. Eliminar: HECHO
 - CU. Alta: HECHO *
-- CU. Consultar.
+- CU. Consultar: HECHO
 - CU. Editar.
 
 V 2.0 --------------------------

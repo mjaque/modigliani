@@ -1,9 +1,9 @@
 'use strict'
 
 import { Vista } from './vista.js'
-import { Cuadro } from '../modelos/cuadro.js'
+//import { Cuadro } from '../modelos/cuadro.js'
 
-/** Vista del formulario de alta de cuadro.
+/** Vista de consulta de los detalles de un cuadro.
  **/
 export class Consulta extends Vista {
   /** Constructor de la clase
@@ -28,7 +28,7 @@ export class Consulta extends Vista {
     //No hay
 
     //Asociación de Eventos
-    this.doc.getElementById('btnVolver').onclick = this.controlador.cancelarConsulta.bind(this.controlador)
+    this.doc.getElementById('btnVolver').onclick = this.controlador.cancelar.bind(this.controlador)
   }
 
   /** Carga los datos del cuadro en la vista

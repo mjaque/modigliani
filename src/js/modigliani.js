@@ -6,6 +6,7 @@ import { BarraNavegacion } from './vistas/barranavegacion.js'
 import { ListaCuadros } from './vistas/listacuadros.js'
 import { FormularioAlta } from './vistas/formularioalta.js'
 import { Consulta } from './vistas/consulta.js'
+import { FormularioEditar } from './vistas/formularioeditar.js'
 
 //Importación de librerías
 
@@ -33,6 +34,8 @@ class Modigliani {
     promesas.push(this.vistas.get('formularioAlta').cargar())
     this.vistas.set('consulta', new Consulta(this, configuracion.dirVistas, configuracion.dirBDImg))
     promesas.push(this.vistas.get('consulta').cargar())
+    this.vistas.set('formularioEditar', new FormularioEditar(this, configuracion.dirVistas, configuracion.dirBDImg))
+    promesas.push(this.vistas.get('formularioEditar').cargar())
 
     Promise.all(promesas).then(this.activar.bind(this))
   }
@@ -51,6 +54,9 @@ class Modigliani {
     this.vistas.get('formularioAlta').transferirA(this.main)
     this.vistas.get('consulta').div.style.display = 'none'
     this.vistas.get('consulta').transferirA(this.main)
+    this.vistas.get('formularioEditar').form.style.display = 'none'
+    this.vistas.get('formularioEditar').transferirA(this.main)
+
     //Asociación de eventos
 
     //Mostrar vistas
@@ -86,7 +92,7 @@ class Modigliani {
     this.mostrar('listaCuadros')
   }
 
-  /** Pide por Ajax los detalles de un cuadros.
+  /** Pide por Ajax los detalles de un cuadros y los muestra en la vista de consulta.
       @param cuadro {Cuadro} Cuadro a consultar.
    **/
   pedirConsultarCuadro(cuadro) {
@@ -108,6 +114,27 @@ class Modigliani {
       })
   }
 
+  /** Pide por Ajax los detalles de un cuadros y los muestra en la vista de edición.
+      @param cuadro {Cuadro} Cuadro a consultar.
+   **/
+  pedirEditarCuadro(cuadro) {
+    Ajax.pedir(configuracion.fachada + '/cuadro', 'GET', {
+        'id': cuadro.id
+      })
+      .then(respuesta =>
+        respuesta.json())
+      .then(respuesta => {
+        if (respuesta.resultado == 'OK'){
+          this.mostrar('formularioEditar')
+          this.vistas.get('formularioEditar').cargarCuadro(respuesta.datos)
+        }
+        else
+          throw (respuesta.mensaje)
+      })
+      .catch(ex => {
+        throw `ERROR en Modigliani.pedirEditarCuadros: ${ex}`
+      })
+  }
 
   /** Abre el interfaz para dar de alta un nuevo cuadro.
    **/
@@ -128,15 +155,9 @@ class Modigliani {
     }
   }
 
-  /** Método de atención a la cancelación del formulario de alta.
+  /** Método de atención a la cancelación de un formulario.
    **/
-  cancelarFormularioAlta() {
-    this.verListaCuadros()
-  }
-
-  /** Método de atención a la cancelación de la consulta de cuadro.
-   **/
-  cancelarConsulta() {
+  cancelar() {
     this.verListaCuadros()
   }
 

@@ -76,10 +76,17 @@ constructor(controlador, dirVistas) {
 	}
 
 	/** Muestra los detalles de un cuadro
-			@param Cuadro {Cuadro} Cuadro a eliminar.
+			@param Cuadro {Cuadro} Cuadro a consultar.
 	**/
 	pedirConsultarCuadro(cuadro){
 		this.controlador.pedirConsultarCuadro(cuadro)
+	}
+
+	/** Edita los detalles de un cuadro
+			@param Cuadro {Cuadro} Cuadro a editar.
+	**/
+	pedirEditarCuadro(cuadro){
+		this.controlador.pedirEditarCuadro(cuadro)
 	}
 
 	/** Elimina un cuadro
