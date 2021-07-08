@@ -139,7 +139,7 @@ class BD extends \SQLite3 {
 	public function modificarCuadro($cuadro, $imagenes){
 		try{
 			$this->exec('BEGIN');	//Iniciamos la transacción
-			$sentencia = $this->prepare("UPDATE Cuadro SET titulo = :titulo, autor = :autor, medidaConMarco = :medidaConMarco, medidaSinMarco = :medidaSinMarco, marcas = :marcas, propietario = :propietario, estadoConservacion = :estadoConservacion, materiales = :materiales, tecnica = :tecnica, descripcionObra = :descripcionObra, descripcionAutor = :descripcionAutor) WHERE id = :id");
+			$sentencia = $this->prepare("UPDATE Cuadro SET titulo = :titulo, autor = :autor, medidaConMarco = :medidaConMarco, medidaSinMarco = :medidaSinMarco, marcas = :marcas, propietario = :propietario, estadoConservacion = :estadoConservacion, materiales = :materiales, tecnica = :tecnica, descripcionObra = :descripcionObra, descripcionAutor = :descripcionAutor WHERE id = :id");
 			if (!$sentencia) throw new \Exception($this->lastErrorMsg());
 
 			$sentencia->bindParam(":titulo", $cuadro['titulo'], SQLITE3_TEXT);
@@ -157,6 +157,10 @@ class BD extends \SQLite3 {
 			if (!@$sentencia->execute())throw new \Exception($this->lastErrorMsg());
 
 			//TODO: borrar las imágenes. Requiere filtrar los datos.
+			//Creamos la lista de id de imágenes.
+			var_dump($cuadro);
+			var_dump($imagenes);
+			die();
 			//if (filter_var($int, FILTER_VALIDATE_INT) === 0 || filter_var($int, FILTER_VALIDATE_INT))
 
 

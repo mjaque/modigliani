@@ -301,7 +301,7 @@
         ["xpath=//div[@id='listaCuadros']/div/img", "xpath:idRelative"],
         ["xpath=//main/div/div/img", "xpath:position"]
       ],
-      "value": "30000"
+      "value": "3000"
     }, {
       "id": "89d0a6fb-decc-4d7d-89b9-764726006345",
       "comment": "",

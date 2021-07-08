@@ -67,9 +67,10 @@ class Modigliani {
   }
 
   /** Pide por Ajax la lista de cuadros.
+      Solicita cuadro.ver sin parámetros para obtener la lista de todos los cuadros.
    **/
   pedirListaCuadros() {
-    Ajax.pedir(configuracion.fachada + '/cuadro', 'GET')
+    Ajax.pedir(configuracion.fachada + '/cuadro', 'ver')
       .then(respuesta =>
         respuesta.json())
       .then(respuesta => {
@@ -93,12 +94,11 @@ class Modigliani {
   }
 
   /** Pide por Ajax los detalles de un cuadros y los muestra en la vista de consulta.
+      Solicita cuadro.ver pasando $_GET['id'].
       @param cuadro {Cuadro} Cuadro a consultar.
    **/
   pedirConsultarCuadro(cuadro) {
-    Ajax.pedir(configuracion.fachada + '/cuadro', 'GET', {
-        'id': cuadro.id
-      })
+    Ajax.pedir(configuracion.fachada + '/cuadro', 'ver', {'id': cuadro.id})
       .then(respuesta =>
         respuesta.json())
       .then(respuesta => {
@@ -115,12 +115,11 @@ class Modigliani {
   }
 
   /** Pide por Ajax los detalles de un cuadros y los muestra en la vista de edición.
+      Solicita cuadro.ver pasando $_GET['id'].
       @param cuadro {Cuadro} Cuadro a consultar.
    **/
   pedirEditarCuadro(cuadro) {
-    Ajax.pedir(configuracion.fachada + '/cuadro', 'GET', {
-        'id': cuadro.id
-      })
+    Ajax.pedir(configuracion.fachada + '/cuadro', 'ver', {'id': cuadro.id})
       .then(respuesta =>
         respuesta.json())
       .then(respuesta => {
@@ -165,7 +164,7 @@ class Modigliani {
   	@param formData {FormData} Datos del formulario de alta, incluyendo las imágenes.
   **/
   pedirAltaCuadro(formData) {
-    Ajax.pedir(configuracion.fachada + '/cuadro', 'POST', formData, false)
+    Ajax.pedir(configuracion.fachada + '/cuadro', 'insertar', formData, 'POST', false)
       .then(respuesta =>
         respuesta.json())
       .then(respuesta => {
@@ -183,7 +182,7 @@ class Modigliani {
     @param formData {FormData} Datos del formulario de edición, incluyendo las imágenes.
   **/
   pedirModificarCuadro(formData) {
-    Ajax.pedir(configuracion.fachada + '/cuadro', 'PUT', formData, false)
+    Ajax.pedir(configuracion.fachada + '/cuadro', 'modificar', formData, 'POST', false)
       .then(respuesta =>
         respuesta.json())
       .then(respuesta => {
@@ -201,9 +200,7 @@ class Modigliani {
   		@param cuadro {Cuadro} Cuadro a eliminar
    */
   pedirEliminarCuadro(cuadro) {
-    Ajax.pedir(configuracion.fachada + '/cuadro', 'DELETE', {
-        'id': cuadro.id
-      })
+    Ajax.pedir(configuracion.fachada + '/cuadro', 'borrar', {'id': cuadro.id}, 'GET')
       .then(respuesta =>
         respuesta.json())
       .then(respuesta => {

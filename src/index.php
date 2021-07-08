@@ -41,7 +41,9 @@ else
 //Comprobamos que sea un controlador
 $clase = 'modigliani\\controladores\\'.ucfirst($uri_array[2]);
 $controlador = new $clase();
-$metodo = strtolower($_SERVER['REQUEST_METHOD']);
+//$metodo = strtolower($_SERVER['REQUEST_METHOD']);
+//Leemos el método de la cabecera personalizada
+$metodo = strtolower($_SERVER['HTTP_METODO']);
 //Comprobamos que exista el método
 if (!method_exists($controlador, $metodo))
 	throw new \Exception("Método desconocido.");

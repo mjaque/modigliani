@@ -1,7 +1,11 @@
 - Requerimiento: Documentar PHP.
+- Mejora: Mandar al cuerno el RestFull y hacerlo bien: controlador/método.
+  PUT no puede usar multipart.
+  Pasar a Ajax.pedir(controlador*, métodoControlador*, parámetros, métodoHTTP=GET, formato(JSON, formData))
 - Mejora: Añadir comentario de ficheros.
 - Mejora: Organizar modigliani.css
 - Mejora: Evitar la recarga de plantillas (tarjetacuadro.js)
 - Mejora: Cambiar la barra de Navegación para mostrar elementos de contexto.
 - Mejora: Control de acceso (htaccess) para evitar el acceso a la base de datos, pero permitir el acceso a las imágenes
 - Mejora: Simplificar en JS la creación, carga y activación de vistas (¿se puede hacer llamada async en constructor?)
+- Mejora: En PHP crear una clase respuesta para estandarizar los atributos. Encapsular.
