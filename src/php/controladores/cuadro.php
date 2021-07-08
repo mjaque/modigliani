@@ -51,6 +51,23 @@ public function post(){
   $this->responder($respuesta);
 }
 
+/** Método para modificar un cuadro.
+ */
+public function put(){
+  $respuesta = new \stdClass();
+  try{
+    $bd = \modigliani\dao\BD::getInstance();
+    $respuesta->datos = $bd->modificarCuadro($_POST, $_FILES);
+    $respuesta->resultado = "OK";
+    $bd = null;	//Cierre de BD
+  }
+  catch(\Exception $e){
+    $respuesta->resultado='ERROR';
+    $respuesta->mensaje=$e;
+  }
+  $this->responder($respuesta);
+}
+
 public function delete(){
   $body = json_decode(file_get_contents("php://input"), true);
   $idCuadro = $body['id'];

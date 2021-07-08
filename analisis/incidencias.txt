@@ -1,6 +1,5 @@
 - Requerimiento: Documentar PHP.
 - Mejora: Añadir comentario de ficheros.
-- Mejora: Refactorizar formularioalta.js y formularioeditar.js que tienen métodos repetidos.
 - Mejora: Organizar modigliani.css
 - Mejora: Evitar la recarga de plantillas (tarjetacuadro.js)
 - Mejora: Cambiar la barra de Navegación para mostrar elementos de contexto.

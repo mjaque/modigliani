@@ -8,3 +8,7 @@ V 1.0 --------------------------
 V 2.0 --------------------------
 - Anexos
 - Préstamos
+- Login y Seguridad: JWT +
+  ¿http-only cookies para evitar XSS?
+  ¿TLS para evitar sniffing?
+  ¿CSRF Tokens?

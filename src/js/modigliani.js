@@ -165,7 +165,6 @@ class Modigliani {
   	@param formData {FormData} Datos del formulario de alta, incluyendo las imágenes.
   **/
   pedirAltaCuadro(formData) {
-    //Ajax.enviar(configuracion.fachada + '/insertar', formData)
     Ajax.pedir(configuracion.fachada + '/cuadro', 'POST', formData, false)
       .then(respuesta =>
         respuesta.json())
@@ -177,6 +176,24 @@ class Modigliani {
       })
       .catch(ex => {
         throw `ERROR en Modigliani.insertar: ${ex}`
+      })
+  }
+
+  /** Método de atención a la aceptación del formulario de edición.
+    @param formData {FormData} Datos del formulario de edición, incluyendo las imágenes.
+  **/
+  pedirModificarCuadro(formData) {
+    Ajax.pedir(configuracion.fachada + '/cuadro', 'PUT', formData, false)
+      .then(respuesta =>
+        respuesta.json())
+      .then(respuesta => {
+        if (respuesta.resultado == 'OK')
+          this.pedirListaCuadros()
+        else
+          throw (respuesta.mensaje)
+      })
+      .catch(ex => {
+        throw `ERROR en Modigliani.modificar: ${ex}`
       })
   }
 

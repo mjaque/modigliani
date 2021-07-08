@@ -26,6 +26,7 @@ class BD extends \SQLite3 {
 
 	private function __construct(){
 		$this->open(BD::$url, SQLITE3_OPEN_READWRITE);
+		$this->exec('PRAGMA foreign_keys = ON');	//Activamos el uso de claves externas.
   }
 
 	public static function getInstance(){
@@ -135,12 +136,66 @@ class BD extends \SQLite3 {
 		}
 	}
 
+	public function modificarCuadro($cuadro, $imagenes){
+		try{
+			$this->exec('BEGIN');	//Iniciamos la transacción
+			$sentencia = $this->prepare("UPDATE Cuadro SET titulo = :titulo, autor = :autor, medidaConMarco = :medidaConMarco, medidaSinMarco = :medidaSinMarco, marcas = :marcas, propietario = :propietario, estadoConservacion = :estadoConservacion, materiales = :materiales, tecnica = :tecnica, descripcionObra = :descripcionObra, descripcionAutor = :descripcionAutor) WHERE id = :id");
+			if (!$sentencia) throw new \Exception($this->lastErrorMsg());
+
+			$sentencia->bindParam(":titulo", $cuadro['titulo'], SQLITE3_TEXT);
+			$sentencia->bindParam(":autor", $cuadro['autor'], SQLITE3_TEXT);
+			$sentencia->bindParam(":medidaConMarco", $cuadro['medidaConMarco'], SQLITE3_TEXT);
+			$sentencia->bindParam(":medidaSinMarco", $cuadro['medidaSinMarco'], SQLITE3_TEXT);
+			$sentencia->bindParam(":marcas", $cuadro['marcas'], SQLITE3_TEXT);
+			$sentencia->bindParam(":propietario", $cuadro['propietario'], SQLITE3_TEXT);
+			$sentencia->bindParam(":estadoConservacion", $cuadro['estadoConservacion'], SQLITE3_TEXT);
+			$sentencia->bindParam(":materiales", $cuadro['materiales'], SQLITE3_TEXT);
+			$sentencia->bindParam(":tecnica", $cuadro['tecnica'], SQLITE3_TEXT);
+			$sentencia->bindParam(":descripcionObra", $cuadro['descripcionObra'], SQLITE3_TEXT);
+			$sentencia->bindParam(":descripcionAutor", $cuadro['descripcionAutor'], SQLITE3_TEXT);
+			$sentencia->bindParam(":id", $cuadro['id'], SQLITE3_INTEGER);
+			if (!@$sentencia->execute())throw new \Exception($this->lastErrorMsg());
+
+			//TODO: borrar las imágenes. Requiere filtrar los datos.
+			//if (filter_var($int, FILTER_VALIDATE_INT) === 0 || filter_var($int, FILTER_VALIDATE_INT))
+
+
+			//Insertamos las imágenes
+			$sentencia = $this->prepare("INSERT INTO Anexo (idCuadro, id, url, descripcion, tipo) VALUES (:idCuadro, :id, :url, :descripcion, 1)");
+			for($i = 0; $i < count($imagenes); $i++){
+				//Comprobamos el tipo MIME
+				$finfo = new \finfo(FILEINFO_MIME_TYPE);
+				if (false === $ext = array_search($finfo->file($imagenes["imagen_$i"]['tmp_name']), array('jpg' => 'image/jpeg', 'png' => 'image/png', 'gif' => 'image/gif'), true))
+					throw new \Exception('Formato inválido.');
+				$nombreImagen = $id.'_'.$i.'.'.$ext;
+
+				$sentencia->bindParam(':idCuadro', $id, SQLITE3_INTEGER);
+				$sentencia->bindParam(':id', $i, SQLITE3_INTEGER);
+				$sentencia->bindParam(':url', $nombreImagen, SQLITE3_TEXT);
+				$sentencia->bindParam(':descripcion', $imagenes["imagen_$i"]['name'], SQLITE3_TEXT);
+
+				if (!move_uploaded_file($imagenes["imagen_$i"]['tmp_name'], BD::$dirImg.DIRECTORY_SEPARATOR.$nombreImagen))
+					throw new \Exception('Fallo al mover el fichero.');
+
+				if (!@$sentencia->execute())throw new \Exception($this->lastErrorMsg());
+			}
+
+			$this->exec('COMMIT');
+			return $id;
+		}catch(\Exception $ex){
+			$this->exec('ROLLBACK');
+			throw $ex;
+		}
+	}
+
 	public function eliminarCuadro($idCuadro){
+		$this->exec('BEGIN');
 		$sentencia = $this->prepare("DELETE FROM Cuadro WHERE id = :idCuadro");
 		if (!$sentencia) throw new \Exception($this->lastErrorMsg());
 
 		$sentencia->bindParam(":idCuadro", $idCuadro, SQLITE3_INTEGER);
 		if (!@$sentencia->execute())throw new \Exception($this->lastErrorMsg());
+		$this->exec('COMMIT');
 	}
 
 }
