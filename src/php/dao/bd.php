@@ -136,6 +136,10 @@ class BD extends \SQLite3 {
 		}
 	}
 
+	/** Actualiza la información de un cuadro.
+			@param $cuadro {stdClass} Datos del cuadro ($_POST).
+			@param $imagenes {stdClass} Datos de las imágenes ($_FILES)
+	**/
 	public function modificarCuadro($cuadro, $imagenes){
 		try{
 			$this->exec('BEGIN');	//Iniciamos la transacción
@@ -156,25 +160,34 @@ class BD extends \SQLite3 {
 			$sentencia->bindParam(":id", $cuadro['id'], SQLITE3_INTEGER);
 			if (!@$sentencia->execute())throw new \Exception($this->lastErrorMsg());
 
-			//TODO: borrar las imágenes. Requiere filtrar los datos.
-			//Creamos la lista de id de imágenes.
-			var_dump($cuadro);
-			var_dump($imagenes);
-			die();
-			//if (filter_var($int, FILTER_VALIDATE_INT) === 0 || filter_var($int, FILTER_VALIDATE_INT))
+			//Borrar las imágenes. Requiere filtrar los datos.
+			if (strlen($cuadro['borrar']) > 0){
+				$ids = filter_var($cuadro['borrar'], FILTER_SANITIZE_STRING);
+				$sentencia = $this->prepare("DELETE FROM Anexo WHERE idCuadro = :idCuadro AND id IN (:ids)");
+				$sentencia->bindParam(":id", $cuadro['id'], SQLITE3_INTEGER);
+				$sentencia->bindParam(":ids", $ids, SQLITE3_TEXT);
+				if (!@$sentencia->execute())throw new \Exception($this->lastErrorMsg());
+			}
 
+			//Insertamos las imágenes nuevas
+			$sentencia = $this->prepare("SELECT MAX(id) + 1 AS nextId FROM Anexo WHERE idCuadro = :idCuadro");
+			$sentencia->bindParam(":idCuadro", $cuadro['id'], SQLITE3_INTEGER);
+			if (!$sentencia) throw new \Exception($this->lastErrorMsg());
+			$resultado = $sentencia->execute();
+			if (!$resultado) throw new \Exception($this->lastErrorMsg());
+			$nextId = $resultado->fetchArray(SQLITE3_ASSOC);
+			$nextId = $nextId['nextId'];
 
-			//Insertamos las imágenes
 			$sentencia = $this->prepare("INSERT INTO Anexo (idCuadro, id, url, descripcion, tipo) VALUES (:idCuadro, :id, :url, :descripcion, 1)");
 			for($i = 0; $i < count($imagenes); $i++){
 				//Comprobamos el tipo MIME
 				$finfo = new \finfo(FILEINFO_MIME_TYPE);
 				if (false === $ext = array_search($finfo->file($imagenes["imagen_$i"]['tmp_name']), array('jpg' => 'image/jpeg', 'png' => 'image/png', 'gif' => 'image/gif'), true))
 					throw new \Exception('Formato inválido.');
-				$nombreImagen = $id.'_'.$i.'.'.$ext;
+				$nombreImagen = $cuadro['id'].'_'.$nextId.'.'.$ext;
 
-				$sentencia->bindParam(':idCuadro', $id, SQLITE3_INTEGER);
-				$sentencia->bindParam(':id', $i, SQLITE3_INTEGER);
+				$sentencia->bindParam(':idCuadro', $cuadro['id'], SQLITE3_INTEGER);
+				$sentencia->bindParam(':id', $nextId, SQLITE3_INTEGER);
 				$sentencia->bindParam(':url', $nombreImagen, SQLITE3_TEXT);
 				$sentencia->bindParam(':descripcion', $imagenes["imagen_$i"]['name'], SQLITE3_TEXT);
 
@@ -182,10 +195,9 @@ class BD extends \SQLite3 {
 					throw new \Exception('Fallo al mover el fichero.');
 
 				if (!@$sentencia->execute())throw new \Exception($this->lastErrorMsg());
+				$nextId++;
 			}
-
 			$this->exec('COMMIT');
-			return $id;
 		}catch(\Exception $ex){
 			$this->exec('ROLLBACK');
 			throw $ex;

@@ -90,11 +90,6 @@ public function modificar(){
     Recibe por $_GET['id'] el identificador del cuadro a borrar.
   */
   public function borrar(){
-    //$body = json_decode(file_get_contents("php://input"), true);
-    //$idCuadro = $body['id'];
-    //$bd = \modigliani\dao\BD::getInstance();
-    //$bd->eliminarCuadro($idCuadro);
-
     $respuesta = new \stdClass();
     try{
       $id = $_GET['id'];

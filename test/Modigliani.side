@@ -649,6 +649,214 @@
       "targets": [],
       "value": ""
     }]
+  }, {
+    "id": "5c25614d-d507-48ac-b100-e2729a1fceb5",
+    "name": "Editar",
+    "commands": [{
+      "id": "8f92025d-9fde-4715-ae02-ae400a60c4de",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fa3a98bb-baf9-4ea9-b3a3-1b7585986854",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "655x620",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4595823f-0363-4132-8c94-10c23b33fbe8",
+      "comment": "",
+      "command": "click",
+      "target": "css=img:nth-child(2)",
+      "targets": [
+        ["css=img:nth-child(2)", "css:finder"],
+        ["xpath=//img[@title='Editar']", "xpath:img"],
+        ["xpath=//div[@id='listaCuadros']/div/p[3]/img[2]", "xpath:idRelative"],
+        ["xpath=//img[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "456cf54d-690a-4148-828d-07cea7697dd1",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=(//input[@id='titulo'])[2]",
+      "targets": [
+        ["xpath=(//input[@id='titulo'])[2]", "xpath:attributes"],
+        ["xpath=(//form[@id='formulario']/input)[9]", "xpath:idRelative"],
+        ["xpath=//form[2]/input", "xpath:position"]
+      ],
+      "value": "Las Meninas (La Familia de Felipe IV)"
+    }, {
+      "id": "780ba7b8-35e4-4461-b8cd-aaffd32fbc8c",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=(//button[@id='btnAceptar'])[2]",
+      "targets": [
+        ["xpath=(//button[@id='btnAceptar'])[2]", "xpath:attributes"],
+        ["xpath=(//form[@id='formulario']/p/button[2])[2]", "xpath:idRelative"],
+        ["xpath=//form[2]/p/button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "34dcb352-3954-4831-ba23-2ed526c3cee8",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.cuadro > p:nth-child(2)",
+      "targets": [
+        ["css=.cuadro > p:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='listaCuadros']/div/p", "xpath:idRelative"],
+        ["xpath=//p", "xpath:position"],
+        ["xpath=//p[contains(.,'Las Meninas (La Familia de Felipe IV)')]", "xpath:innerText"]
+      ],
+      "value": "Las Meninas (La Familia de Felipe IV)"
+    }, {
+      "id": "19b37b6a-d271-4489-b29c-c9b472b69211",
+      "comment": "",
+      "command": "click",
+      "target": "css=.botones > img:nth-child(2)",
+      "targets": [
+        ["css=.botones > img:nth-child(2)", "css:finder"],
+        ["xpath=//img[@title='Editar']", "xpath:img"],
+        ["xpath=//div[@id='listaCuadros']/div/p[3]/img[2]", "xpath:idRelative"],
+        ["xpath=//img[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba7c1032-2649-43f4-86d2-04d7bfdb639b",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=(//form[@id='formulario'])[2]",
+      "targets": [
+        ["xpath=(//form[@id='formulario'])[2]", "xpath:attributes"],
+        ["xpath=//form[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0d3e55ef-c89a-41e0-b33b-786da136a7c6",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=(//input[@id='titulo'])[2]",
+      "targets": [
+        ["xpath=(//input[@id='titulo'])[2]", "xpath:attributes"],
+        ["xpath=(//form[@id='formulario']/input)[9]", "xpath:idRelative"],
+        ["xpath=//form[2]/input", "xpath:position"]
+      ],
+      "value": "Las Meninas "
+    }, {
+      "id": "4911388b-7d6c-49e4-b81e-1224af9088f8",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=(//textarea[@name='descripcionAutor'])[2]",
+      "targets": [
+        ["xpath=(//textarea[@name='descripcionAutor'])[2]", "xpath:attributes"],
+        ["xpath=(//form[@id='formulario']/textarea[4])[2]", "xpath:idRelative"],
+        ["xpath=//form[2]/textarea[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "31d9c36d-eac4-473d-983a-19f3a1d34c6e",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=(//textarea[@name='descripcionAutor'])[2]",
+      "targets": [
+        ["xpath=(//textarea[@name='descripcionAutor'])[2]", "xpath:attributes"],
+        ["xpath=(//form[@id='formulario']/textarea[4])[2]", "xpath:idRelative"],
+        ["xpath=//form[2]/textarea[4]", "xpath:position"]
+      ],
+      "value": "Muy conocido, pero melenudo..."
+    }, {
+      "id": "f0c420e2-b2f8-49b9-8f68-35c44321a9e9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.contenedor:nth-child(2) > .activo",
+      "targets": [
+        ["css=.contenedor:nth-child(2) > .activo", "css:finder"],
+        ["xpath=(//img[@title='Eliminar'])[3]", "xpath:img"],
+        ["xpath=//fieldset[@id='imagenes']/div[2]/img[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/img[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cbf6235d-a82b-4239-9f27-fc0ccb19c52a",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(3)",
+      "targets": [
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=(//input[@type='file'])[2]", "xpath:attributes"],
+        ["xpath=(//fieldset[@id='imagenes']/input)[2]", "xpath:idRelative"],
+        ["xpath=//form[2]/fieldset/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "74a67cbc-338c-4c7c-93e1-10cc53495849",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(4)",
+      "targets": [
+        ["css=input:nth-child(4)", "css:finder"],
+        ["xpath=(//input[@type='file'])[2]", "xpath:attributes"],
+        ["xpath=(//fieldset[@id='imagenes']/input)[2]", "xpath:idRelative"],
+        ["xpath=//form[2]/fieldset/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c40d66c0-f51d-458a-86bc-d4ff6cbe6d98",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=(//button[@id='btnAceptar'])[2]",
+      "targets": [
+        ["xpath=(//button[@id='btnAceptar'])[2]", "xpath:attributes"],
+        ["xpath=(//form[@id='formulario']/p/button[2])[2]", "xpath:idRelative"],
+        ["xpath=//form[2]/p/button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4c9583dc-0212-4473-a35f-a03c07abbbac",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cf92a2c0-e872-4ca5-aa1b-12d192ed5b9f",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.cuadro > p:nth-child(2)",
+      "targets": [
+        ["css=.cuadro > p:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='listaCuadros']/div/p", "xpath:idRelative"],
+        ["xpath=//p", "xpath:position"],
+        ["xpath=//p[contains(.,'Las Meninas')]", "xpath:innerText"]
+      ],
+      "value": "Las Meninas"
+    }, {
+      "id": "bdc311e1-3cdd-4214-a4b7-6b65b52bd495",
+      "comment": "",
+      "command": "click",
+      "target": "css=.botones > img:nth-child(2)",
+      "targets": [
+        ["css=.botones > img:nth-child(2)", "css:finder"],
+        ["xpath=//img[@title='Editar']", "xpath:img"],
+        ["xpath=//div[@id='listaCuadros']/div/p[3]/img[2]", "xpath:idRelative"],
+        ["xpath=//img[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e6067f2d-b46b-433c-8429-b69bfaf7f8f5",
+      "comment": "",
+      "command": "assertValue",
+      "target": "xpath=(//textarea[@name='descripcionAutor'])[2]",
+      "targets": [
+        ["xpath=(//textarea[@name='descripcionAutor'])[2]", "xpath:attributes"],
+        ["xpath=(//form[@id='formulario']/textarea[4])[2]", "xpath:idRelative"],
+        ["xpath=//form[2]/textarea[4]", "xpath:position"]
+      ],
+      "value": "Muy conocido, pero melenudo..."
+    }]
   }],
   "suites": [{
     "id": "0947c41f-d197-465b-925e-d79e15445278",
