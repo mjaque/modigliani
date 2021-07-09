@@ -1,4 +1,11 @@
 <?php
+/**
+	Fichero de la clase controlador Cuadro.
+	@author Miguel Jaque Barbero (mjaque@migueljaque.com).
+	@version 0.1
+	@license GPL v3
+	@año 2021
+**/
 
 namespace modigliani\controladores;
 

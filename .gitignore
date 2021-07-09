@@ -1,5 +1,6 @@
 src/bd/modigliani.bd
 src/bd/img/*
+.phpdoc/*
 
 # Logs
 logs

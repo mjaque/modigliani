@@ -1,4 +1,11 @@
 <?php
+/**
+	Fichero de la clase DAO BD.
+	@author Miguel Jaque Barbero (mjaque@migueljaque.com).
+	@version 0.1
+	@license GPL v3
+	@año 2021
+**/
 
 namespace modigliani\dao;
 
@@ -24,12 +31,17 @@ class BD extends \SQLite3 {
     self::$dirImg = $url;
   }
 
-	//Debería ser privado, pero la versión de PHP del servidor no lo permite
+	/** Constructor de la clase.
+			Debería ser privado, pero la versión de PHP del servidor no lo permite
+	*/
 	public function __construct(){
 		$this->open(BD::$url, SQLITE3_OPEN_READWRITE);
 		$this->exec('PRAGMA foreign_keys = ON');	//Activamos el uso de claves externas.
   }
 
+	/** Método de implementación del Singleton. Devuelve una referencia a la instancia de BD
+			@return {BD} Referencia al objeto de base de datos.
+	*/
 	public static function getInstance(){
     if (self::$instance == null)
       self::$instance = new BD();
@@ -37,6 +49,9 @@ class BD extends \SQLite3 {
     return self::$instance;
   }
 
+/** Devuelve la lista de cuadros.
+		@return {Cuadro[]} Array de cuadro
+*/
 	public function listarCuadros(){
 		//Tenemos un one-many en cuadro-anexos. Lo reducimos a dos consultas.
 		$sentencia = $this->prepare("SELECT id, titulo, autor FROM Cuadro ORDER BY autor, titulo");
@@ -65,7 +80,7 @@ class BD extends \SQLite3 {
 
 	/** Devuelve los datos de un cuadro de la base de datos.
 			@param id {Integer} Identificador del cuadro.
-			@return
+			@return {Cuadro}
 	**/
 	public function verCuadro($id){
 		$sentencia = $this->prepare("SELECT id, titulo, autor, medidaConMarco, medidaSinMarco, marcas, propietario, estadoConservacion, materiales, tecnica, descripcionObra, descripcionAutor FROM Cuadro WHERE id = :id");
@@ -87,6 +102,10 @@ class BD extends \SQLite3 {
 		return $cuadro;
 	}
 
+	/** Inserta un cuadro en la base de datos.
+			@param $cuadro {$_POST} Datos del cuadro.
+			@param $imagenes {$_FILES} Imágenes asociadas al cuadro.
+	*/
 	public function insertarCuadro($cuadro, $imagenes){
 		try{
 			$this->exec('BEGIN');	//Iniciamos la transacción
@@ -205,6 +224,9 @@ class BD extends \SQLite3 {
 		}
 	}
 
+	/** Elimina un cuadro de la base de datos.
+			@param $idCuadro {Integer} Identificador del cuadro a eliminar.
+	*/
 	public function eliminarCuadro($idCuadro){
 		$this->exec('BEGIN');
 		$sentencia = $this->prepare("DELETE FROM Cuadro WHERE id = :idCuadro");

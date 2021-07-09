@@ -12,3 +12,8 @@ V 2.0 --------------------------
   ¿http-only cookies para evitar XSS?
   ¿TLS para evitar sniffing?
   ¿CSRF Tokens?
+- Autor en desplegable, ampliable ("Nuevo Autor")
+  BD: tabla autores.
+      clave externa en Cuadro.
+      Procedimiento de migración.
+      Versión de BBDD.

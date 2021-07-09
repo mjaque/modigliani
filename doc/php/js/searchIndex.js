@@ -63,17 +63,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\modigliani\\dao\\BD\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020de\u0020la\u0020clase.",
             "url": "classes/modigliani-dao-BD.html#method___construct"
         },                {
             "fqsen": "\\modigliani\\dao\\BD\u003A\u003AgetInstance\u0028\u0029",
             "name": "getInstance",
-            "summary": "",
+            "summary": "M\u00E9todo\u0020de\u0020implementaci\u00F3n\u0020del\u0020Singleton.\u0020Devuelve\u0020una\u0020referencia\u0020a\u0020la\u0020instancia\u0020de\u0020BD",
             "url": "classes/modigliani-dao-BD.html#method_getInstance"
         },                {
             "fqsen": "\\modigliani\\dao\\BD\u003A\u003AlistarCuadros\u0028\u0029",
             "name": "listarCuadros",
-            "summary": "",
+            "summary": "Devuelve\u0020la\u0020lista\u0020de\u0020cuadros.",
             "url": "classes/modigliani-dao-BD.html#method_listarCuadros"
         },                {
             "fqsen": "\\modigliani\\dao\\BD\u003A\u003AverCuadro\u0028\u0029",
@@ -83,7 +83,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\modigliani\\dao\\BD\u003A\u003AinsertarCuadro\u0028\u0029",
             "name": "insertarCuadro",
-            "summary": "",
+            "summary": "Inserta\u0020un\u0020cuadro\u0020en\u0020la\u0020base\u0020de\u0020datos.",
             "url": "classes/modigliani-dao-BD.html#method_insertarCuadro"
         },                {
             "fqsen": "\\modigliani\\dao\\BD\u003A\u003AmodificarCuadro\u0028\u0029",
@@ -93,7 +93,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\modigliani\\dao\\BD\u003A\u003AeliminarCuadro\u0028\u0029",
             "name": "eliminarCuadro",
-            "summary": "",
+            "summary": "Elimina\u0020un\u0020cuadro\u0020de\u0020la\u0020base\u0020de\u0020datos.",
             "url": "classes/modigliani-dao-BD.html#method_eliminarCuadro"
         },                {
             "fqsen": "\\modigliani\\dao\\BD\u003A\u003A\u0024instance",
