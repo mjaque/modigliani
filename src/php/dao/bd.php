@@ -24,7 +24,8 @@ class BD extends \SQLite3 {
     self::$dirImg = $url;
   }
 
-	private function __construct(){
+	//Debería ser privado, pero la versión de PHP del servidor no lo permite
+	public function __construct(){
 		$this->open(BD::$url, SQLITE3_OPEN_READWRITE);
 		$this->exec('PRAGMA foreign_keys = ON');	//Activamos el uso de claves externas.
   }

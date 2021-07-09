@@ -32,12 +32,10 @@ session_start();
 //$uri = $_SERVER['REQUEST_URI'];
 $uri =  $_SERVER['PHP_SELF'];
 $uri_array = explode( "/", $uri );
-//Quitamos los parámetros GET que pudiera tener buscando ?
-$indice = 2;  //TODO: ¿Este índice depende del directorio de despliegue en el hosting?
-if (strpos($uri_array[$indice], '?'))
-	$controlador = substr($uri_array[$indice], 0, strpos($uri_array[$indice], '?'));
-else
-	$controlador = $uri_array[$indice];
+$controlador = end($uri_array);
+if (strpos($controlador, '?'))
+	$controlador = substr($controlador, 0, strpos($controlador, '?'));
+
 //Comprobamos que sea un controlador
 $clase = 'modigliani\\controladores\\'.ucfirst($uri_array[2]);
 $controlador = new $clase();

@@ -1,4 +1,4 @@
-- Requerimiento: Documentar PHP.
+- Requerimiento: Completar documentación de PHP.
 - Mejora: Añadir comentario de ficheros.
 - Mejora: Organizar modigliani.css
 - Mejora: Evitar la recarga de plantillas (tarjetacuadro.js)
@@ -6,3 +6,4 @@
 - Mejora: Control de acceso (htaccess) para evitar el acceso a la base de datos, pero permitir el acceso a las imágenes
 - Mejora: Simplificar en JS la creación, carga y activación de vistas (¿se puede hacer llamada async en constructor?)
 - Mejora: En PHP crear una clase respuesta para estandarizar los atributos. Encapsular.
+- Problema: La versión de PHP del servidor de producción no permite que BD::__construct sea privado. Eso desprotege el Singleton.
