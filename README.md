@@ -1,13 +1,6 @@
 # Modigliani
 Modigliani es una aplicación CRUD (Create, Read, Update, Delete) para la gestión de Cuadros.
 
-# Descargar
-Para obtener la última versión (--depth 1 evita bajar todo el historial): 
-	git clone --depth 1 https://github.com/mjaque/modigliani
- 
-Para obtener una versión específica
-	git clone --depth 1 --branch v1.0 https://github.com/mjaque/modigliani
- 
 # Dependencias
 Requiere:
 	- Selenium IDE para la ejecución de las pruebas automáticas.
@@ -39,3 +32,29 @@ Requiere:
 	./node_modules/mocha/bin/mocha
 
 	O definir el script en package.json y ejecutar: npm test
+	
+# Git
+
+## Descargar
+Para obtener la última versión (--depth 1 evita bajar todo el historial): 
+	git clone --depth 1 https://github.com/mjaque/modigliani
+ 
+Para obtener una versión específica
+	git clone --depth 1 --branch v1.0 https://github.com/mjaque/modigliani
+ 
+## Branch & Merge
+Para hacer una rama y combinarla:
+	git branch <nombre_rama>
+	git checkout <nombre_rama>
+	
+	git commit -m 'Mensaje del commit en la rama nueva'
+	
+	Si hace falta cambiar a la rama master
+	git checkout master
+	git commit -m 'Mensaje del commit en la rama master'
+	
+	Para combinar ambas (desde la rama master)
+	git merge <nombre_rama>
+	
+	Como ya no hace falta la rama, podemos borrarla
+	git branch -d <nombre_rama>

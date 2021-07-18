@@ -26,6 +26,8 @@ class Modigliani {
   cargar() {
     //Carga de Vistas
     const promesas = [] //Creamos un array de promesas
+    //this.vistas.set('formularioLogin', new FormularioLogin(this, configuracion.dirVistas))
+    //promesas.push(this.vistas.get('formularioLogin').cargar())
     this.vistas.set('barraNavegacion', new BarraNavegacion(this, configuracion.dirVistas))
     promesas.push(this.vistas.get('barraNavegacion').cargar())
     this.vistas.set('listaCuadros', new ListaCuadros(this, configuracion.dirVistas))
@@ -48,6 +50,7 @@ class Modigliani {
     this.nav = document.getElementsByTagName('nav')[0]
     this.main = document.getElementsByTagName('main')[0]
 
+    //this.vistas.get('formularioLogin').transferirA(this.main)
     this.vistas.get('listaCuadros').div.style.display = 'none'
     this.vistas.get('listaCuadros').transferirA(this.main)
     this.vistas.get('formularioAlta').form.style.display = 'none'
@@ -64,6 +67,29 @@ class Modigliani {
 
     //Iniciar la carga de la lista de cuadros
     this.pedirListaCuadros()
+  }
+
+  /** Identifica al usuario de la aplicación.
+      Realiza la petición Ajax para recibir el token (JWT)
+      @param usuario {String} Nombre de usuario.
+      @param clave {String} Clave del usuario.
+  **/
+  login(usuario, clave){
+    Ajax.pedir(configuracion.fachada + '/cuadro', 'ver')
+      .then(respuesta =>
+        respuesta.json())
+      .then(respuesta => {
+        if (respuesta.resultado == 'OK'){
+            console.log(respuesta)
+            //TODO: destruir? el formulario de login.
+            this.pedirListaCuadros()
+        }
+        else
+          throw (respuesta.mensaje)
+      })
+      .catch(ex => {
+        throw `ERROR en Modigliani.login: ${ex}`
+      })
   }
 
   /** Pide por Ajax la lista de cuadros.
