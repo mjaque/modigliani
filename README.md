@@ -1,6 +1,13 @@
 # Modigliani
 Modigliani es una aplicación CRUD (Create, Read, Update, Delete) para la gestión de Cuadros.
 
+# Descargar
+Para obtener la última versión (--depth 1 evita bajar todo el historial): 
+	git clone --depth 1 https://github.com/mjaque/modigliani
+ 
+Para obtener una versión específica
+	git clone --depth 1 --branch v1.0 https://github.com/mjaque/modigliani
+ 
 # Dependencias
 Requiere:
 	- Selenium IDE para la ejecución de las pruebas automáticas.
