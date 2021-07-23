@@ -23,21 +23,22 @@ spl_autoload_register('modigliani\cargar');
 controladores\Cuadro::setDirImg($configuracion['general']['dir_img']);
 dao\BD::setUrl($configuracion['base_datos']['url']);
 dao\BD::setDirImg($configuracion['general']['dir_img']);
-
-//Middleware
-session_start();
+modelos\JWT::setAlgoritmo($configuracion['encriptacion']['algoritmo']);
+modelos\JWT::setClave($configuracion['encriptacion']['clave']);
+modelos\JWT::setIV($configuracion['encriptacion']['vector_inicializacion']);
 
 //Routing
 //Parseamos la URI. Ref: https://serverfault.com/questions/210734/url-rewrite-with-multiple-parameters-using-htaccess
 //$uri = $_SERVER['REQUEST_URI'];
 $uri =  $_SERVER['PHP_SELF'];
 $uri_array = explode( "/", $uri );
-$controlador = end($uri_array);
-if (strpos($controlador, '?'))
-	$controlador = substr($controlador, 0, strpos($controlador, '?'));
+$nombre_controlador = end($uri_array);
+if (strpos($nombre_controlador, '?'))
+	$nombre_controlador = substr($nombre_controlador, 0, strpos($nombre_controlador, '?'));
 
 //Comprobamos que sea un controlador
-$clase = 'modigliani\\controladores\\'.ucfirst($uri_array[2]);
+//$clase = 'modigliani\\controladores\\'.ucfirst($uri_array[2]);
+$clase = 'modigliani\\controladores\\'.ucfirst($nombre_controlador);
 $controlador = new $clase();
 //$metodo = strtolower($_SERVER['REQUEST_METHOD']);
 //Leemos el método de la cabecera personalizada
@@ -45,6 +46,16 @@ $metodo = strtolower($_SERVER['HTTP_METODO']);
 //Comprobamos que exista el método
 if (!method_exists($controlador, $metodo))
 	throw new \Exception("Método desconocido.");
+
+//Control de Acceso
+//Si es usuario->login, no hay control
+if ($nombre_controlador != 'usuario' || $metodo != 'login'){
+	$payload = modelos\JWT::getPayload();
+	$usuario = $payload->usuario;
+	if ($usuario != 'Anacleto')
+		throw new \Exception("Acceso no autorizado.");
+}
+
 //Llamamos al método del controlador
 $controlador->{$metodo}();
 die();

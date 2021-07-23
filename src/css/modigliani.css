@@ -67,17 +67,17 @@ label, legend{
   line-height: 2em;
 }
 
-input[type=text], textarea{
+input[type=text], input[type=password], textarea{
   font-family: arial;
   color: darkblue;
   box-sizing: border-box;
 }
 
-input[type=text].grande{
+input[type=text].grande, input[type=password].grande{
   width: 80%
 }
 
-input[type=text].pequeno{
+input[type=text].pequeno, input[type=password].pequeno{
   width: 40%
 }
 
@@ -112,6 +112,15 @@ button.otros{
 }
 button.otros:hover{
   background-color: lightblue;
+}
+
+#formularioLogin{
+	border: 2px solid darkred;
+	width: 60%;
+	margin:auto;
+	margin-top: 4em;
+	padding: 2em;
+	text-align: center;
 }
 
 #formularioAlta {
@@ -185,4 +194,19 @@ textarea{
 
 fieldset>img{
 	align-self: flex-end;
+}
+
+/* Vista de Alerta */
+#alerta {
+  padding: 2em;
+  margin: 2em;
+	color: white;
+	font-family: arial;
+}
+
+/* The close button */
+#btnCerrarAlerta {
+  margin-left: 1em;
+  float: right;
+  transition: 0.3s;
 }

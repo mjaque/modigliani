@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Vista</title>
+    <title>JSDoc: Class: Alerta</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Vista</h1>
+    <h1 class="page-title">Class: Alerta</h1>
 
     
 
@@ -28,10 +28,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Vista<span class="signature">(controlador, plantilla)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>Alerta<span class="signature">(controlador, dirVistas)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">Clase abstracta que define una Vista.
-	Una Vista es un "trozo" de HTML.</div>
+            <div class="class-description">Vista para mostrar avisos al usuario.</div>
         
     
 </header>
@@ -46,7 +45,7 @@
     
 
     
-    <h4 class="name" id="Vista"><span class="type-signature"></span>new Vista<span class="signature">(controlador, plantilla)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Alerta"><span class="type-signature"></span>new Alerta<span class="signature">(controlador, dirVistas)</span><span class="type-signature"></span></h4>
     
 
     
@@ -54,7 +53,7 @@
 
 
 <div class="description">
-    Constructor del Vista
+    Constructor de la clase
 </div>
 
 
@@ -79,8 +78,6 @@
 
         
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -107,10 +104,6 @@
             
 
             
-                <td class="default">
-                
-                </td>
-            
 
             <td class="description last">Controlador de la vista.</td>
         </tr>
@@ -119,7 +112,7 @@
 
         <tr>
             
-                <td class="name"><code>plantilla</code></td>
+                <td class="name"><code>dirVistas</code></td>
             
 
             <td class="type">
@@ -134,14 +127,8 @@
             
 
             
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
 
-            <td class="description last">URL de la plantilla HTML de la vista.</td>
+            <td class="description last">Directorio de Vistas.</td>
         </tr>
 
     
@@ -182,7 +169,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="vistas_vista.js.html">vistas/vista.js</a>, <a href="vistas_vista.js.html#line6">line 6</a>
+        <a href="vistas_alerta.js.html">vistas/alerta.js</a>, <a href="vistas_alerta.js.html#line7">line 7</a>
     </li></ul></dd>
     
 
@@ -223,7 +210,7 @@
         <h3 class="subsection-title">Classes</h3>
 
         <dl>
-            <dt><a href="Vista.html">Vista</a></dt>
+            <dt><a href="Alerta.html">Alerta</a></dt>
             <dd></dd>
         </dl>
     
@@ -245,7 +232,7 @@
     
 
     
-    <h4 class="name" id="cargar"><span class="type-signature"></span>cargar<span class="signature">(plantilla)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="alertar"><span class="type-signature"></span>alertar<span class="signature">(mensaje, tipo)</span><span class="type-signature"></span></h4>
     
 
     
@@ -253,7 +240,7 @@
 
 
 <div class="description">
-    Carga la plantilla HTML de la Vista
+    Muestra la alerta
 </div>
 
 
@@ -289,13 +276,13 @@
 
         <tr>
             
-                <td class="name"><code>plantilla</code></td>
+                <td class="name"><code>mensaje</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">String</span>
 
 
             
@@ -305,7 +292,30 @@
 
             
 
-            <td class="description last">URL de la plantilla a cargar.</td>
+            <td class="description last">Texto del mensaje a mostrar</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>tipo</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Tipo de mensaje. Debe ser una de las constantes de Alerta.</td>
         </tr>
 
     
@@ -346,7 +356,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="vistas_vista.js.html">vistas/vista.js</a>, <a href="vistas_vista.js.html#line22">line 22</a>
+        <a href="vistas_alerta.js.html">vistas/alerta.js</a>, <a href="vistas_alerta.js.html#line31">line 31</a>
     </li></ul></dd>
     
 
@@ -371,24 +381,94 @@
 
 
 
-<h5>Returns:</h5>
+
+
+
+
 
         
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise</span>
-
-
-    </dd>
-</dl>
+            
 
     
+
+    
+    <h4 class="name" id="cerrarAlerta"><span class="type-signature"></span>cerrarAlerta<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Cierra la alerta
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vistas_alerta.js.html">vistas/alerta.js</a>, <a href="vistas_alerta.js.html#line39">line 39</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -408,8 +488,7 @@
 
 
 <div class="description">
-    Método para insertar datos y asociar los eventos a los elementos del documento.
-  	Debe ser sobreescrito por la clase derivada de Vista.
+    Carga los datos del cuadro en la vista
 </div>
 
 
@@ -453,7 +532,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="vistas_vista.js.html">vistas/vista.js</a>, <a href="vistas_vista.js.html#line42">line 42</a>
+        <a href="vistas_alerta.js.html">vistas/alerta.js</a>, <a href="vistas_alerta.js.html#line18">line 18</a>
     </li></ul></dd>
     
 
@@ -489,7 +568,7 @@
     
 
     
-    <h4 class="name" id="destruir"><span class="type-signature"></span>destruir<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="limpiar"><span class="type-signature"></span>limpiar<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -497,7 +576,7 @@
 
 
 <div class="description">
-    Destruye el objeto con garantías.
+    Borra los datos de la vista
 </div>
 
 
@@ -541,7 +620,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="vistas_vista.js.html">vistas/vista.js</a>, <a href="vistas_vista.js.html#line65">line 65</a>
+        <a href="vistas_alerta.js.html">vistas/alerta.js</a>, <a href="vistas_alerta.js.html#line59">line 59</a>
     </li></ul></dd>
     
 
@@ -577,7 +656,7 @@
     
 
     
-    <h4 class="name" id="transferirA"><span class="type-signature"></span>transferirA<span class="signature">(nodoPadre, primero)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="mostrar"><span class="type-signature"></span>mostrar<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -585,8 +664,7 @@
 
 
 <div class="description">
-    Añade los nodos del interfaz a un nodoPadre.
-  	Al cargar los nodos en otro documento, desaparecen de this.doc. Por eso deja la referencia en this.nodoPadre
+    Hace visible la vista
 </div>
 
 
@@ -595,90 +673,6 @@
 
 
 
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>nodoPadre</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">HTMLNode</span>
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">Nodo al que se añadirá la vista.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>primero</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="default">
-                
-                    false
-                
-                </td>
-            
-
-            <td class="description last">Indica si la vista debe añadirse antes que otros hijos que ya tuviera el nodo padre.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -714,7 +708,95 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="vistas_vista.js.html">vistas/vista.js</a>, <a href="vistas_vista.js.html#line50">line 50</a>
+        <a href="vistas_alerta.js.html">vistas/alerta.js</a>, <a href="vistas_alerta.js.html#line46">line 46</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="ocultar"><span class="type-signature"></span>ocultar<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Oculta la vista
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vistas_alerta.js.html">vistas/alerta.js</a>, <a href="vistas_alerta.js.html#line53">line 53</a>
     </li></ul></dd>
     
 
