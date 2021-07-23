@@ -14,8 +14,8 @@ namespace modigliani\dao;
 **/
 class BD extends \SQLite3 {
 	private static $instance = null;
-	private static $url;
-	private static $dirImg;
+	private static $url;		//URL de la base de datos.
+	private static $dirImg;	//Directorio de almacenamiento de imágenes.
 
 	/** Establece el valor de la URL de la Base de Datos.
 			Es un método estático para la inyección de dependencias.
@@ -48,6 +48,21 @@ class BD extends \SQLite3 {
 
     return self::$instance;
   }
+
+	/** Comprueba el nombre del usuario y la constraseña. Si no coincide, lanza una excepción.
+			@param {String} $nombre Nombre del usuario.
+			@param {String} $clave Clave del usuario.
+	*/
+	public function login($nombre, $clave){
+			$sentencia = $this->prepare("SELECT COUNT(*) FROM Usuario WHERE nombre = :nombre AND clave = :clave");
+			if (!$sentencia) throw new \Exception($this->lastErrorMsg());
+
+			$sentencia->bindParam(":nombre", $nombre, SQLITE3_TEXT);
+			$sentencia->bindParam(":clave", $clave, SQLITE3_TEXT);
+			$resultado = $sentencia->execute();
+			if ($resultado->fetchArray(SQLITE3_NUM)[0] != 1)
+				throw new \Exception('Usuario/Clave incorrectos.');
+	}
 
 /** Devuelve la lista de cuadros.
 		@return {Cuadro[]} Array de cuadro

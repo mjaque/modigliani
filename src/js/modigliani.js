@@ -1,12 +1,32 @@
 'use strict'
 
-import { configuracion } from './configuracion.js'
-import { Ajax } from './ajax.js'
-import { BarraNavegacion } from './vistas/barranavegacion.js'
-import { ListaCuadros } from './vistas/listacuadros.js'
-import { FormularioAlta } from './vistas/formularioalta.js'
-import { Consulta } from './vistas/consulta.js'
-import { FormularioEditar } from './vistas/formularioeditar.js'
+import {
+  configuracion
+} from './configuracion.js'
+import {
+  Ajax
+} from './ajax.js'
+import {
+  BarraNavegacion
+} from './vistas/barranavegacion.js'
+import {
+  ListaCuadros
+} from './vistas/listacuadros.js'
+import {
+  FormularioAlta
+} from './vistas/formularioalta.js'
+import {
+  Consulta
+} from './vistas/consulta.js'
+import {
+  FormularioEditar
+} from './vistas/formularioeditar.js'
+import {
+  FormularioLogin
+} from './vistas/formulariologin.js'
+import {
+  Alerta
+} from './vistas/alerta.js'
 
 //Importación de librerías
 
@@ -18,7 +38,10 @@ class Modigliani {
   **/
   constructor() {
     this.vistas = new Map() //Mapa de vistas de la aplicación.
+
+    //Eventos globales
     window.onload = this.cargar.bind(this)
+    window.onerror = this.error.bind(this)
   }
 
   /** Carga las vistas de la aplicación. Después activa la aplicación.
@@ -26,6 +49,8 @@ class Modigliani {
   cargar() {
     //Carga de Vistas
     const promesas = [] //Creamos un array de promesas
+    this.vistas.set('formularioLogin', new FormularioLogin(this, configuracion.dirVistas))
+    promesas.push(this.vistas.get('formularioLogin').cargar())
     this.vistas.set('barraNavegacion', new BarraNavegacion(this, configuracion.dirVistas))
     promesas.push(this.vistas.get('barraNavegacion').cargar())
     this.vistas.set('listaCuadros', new ListaCuadros(this, configuracion.dirVistas))
@@ -36,8 +61,17 @@ class Modigliani {
     promesas.push(this.vistas.get('consulta').cargar())
     this.vistas.set('formularioEditar', new FormularioEditar(this, configuracion.dirVistas, configuracion.dirBDImg))
     promesas.push(this.vistas.get('formularioEditar').cargar())
+    this.vistas.set('alerta', new Alerta(this, configuracion.dirVistas))
+    promesas.push(this.vistas.get('alerta').cargar())
 
     Promise.all(promesas).then(this.activar.bind(this))
+  }
+
+  /** Manejador para errores y excepciones no capturados.
+   **/
+  error(mensaje, url, linea, columna, error) {
+    console.error(`${mensaje}: ${error} (${url}, ${linea})`)
+    this.alertar(error, Alerta.ERROR)
   }
 
   /** Activa los botones y elementos activos de la aplicación. Después, pide la lista de cuadros.
@@ -45,9 +79,17 @@ class Modigliani {
   activar() {
 
     //Registro de nodos de referencia
+    this.body = document.getElementsByTagName('body')[0]
     this.nav = document.getElementsByTagName('nav')[0]
     this.main = document.getElementsByTagName('main')[0]
 
+    this.vistas.get('barraNavegacion').transferirA(this.nav)
+
+    //Conviene que la alerta sea la primera en <main> para que aparezca encima.
+    this.vistas.get('alerta').transferirA(this.main)
+    this.vistas.get('alerta').div.style.display = 'none'
+
+    this.vistas.get('formularioLogin').transferirA(this.main)
     this.vistas.get('listaCuadros').div.style.display = 'none'
     this.vistas.get('listaCuadros').transferirA(this.main)
     this.vistas.get('formularioAlta').form.style.display = 'none'
@@ -57,13 +99,42 @@ class Modigliani {
     this.vistas.get('formularioEditar').form.style.display = 'none'
     this.vistas.get('formularioEditar').transferirA(this.main)
 
-    //Asociación de eventos
+    this.vistas.get('formularioLogin').mostrar()
 
-    //Mostrar vistas
-    this.vistas.get('barraNavegacion').transferirA(this.nav)
+    this.alertar('Aplicación Iniciada', Alerta.EXITO)
+  }
 
-    //Iniciar la carga de la lista de cuadros
-    this.pedirListaCuadros()
+  /** Presenta una alerta al usuario.
+      @param mensaje {String} Texto de la alerta.
+      @param nivel {String} Nivel de alerta. Debe ser una de las constantes de clase de Alerta.
+   */
+  alertar(mensaje, nivel = Alerta.ERROR) {
+    console.log(mensaje)
+    this.vistas.get('alerta').alertar(mensaje, nivel)
+  }
+
+  /** Realiza por Ajax el login del usuario.
+      Recibe un token (estilo JWT).
+      @param usuario {String} Nombre del usuario.
+      @param clave {String} Clave del usuario.
+   **/
+  login(usuario, clave) {
+    Ajax.pedir(configuracion.fachada + '/usuario', 'login', {
+        'usuario': usuario,
+        'clave': clave
+      }, 'POST')
+      .then(respuesta =>
+        respuesta.json())
+      .then(respuesta => {
+        if (respuesta.resultado == 'OK') {
+          Ajax.setToken(respuesta.datos)
+          this.pedirListaCuadros()
+        } else
+          this.alertar(respuesta.mensaje)
+      })
+      .catch(ex => {
+        this.alertar(ex)
+      })
   }
 
   /** Pide por Ajax la lista de cuadros.
@@ -80,10 +151,10 @@ class Modigliani {
             this.verListaCuadros()
           })
         else
-          throw (respuesta.mensaje)
+          this.alertar(respuesta.mensaje)
       })
       .catch(ex => {
-        throw `ERROR en Modigliani.pedirListaCuadros: ${ex}`
+        this.alertar(ex)
       })
   }
 
@@ -98,19 +169,20 @@ class Modigliani {
       @param cuadro {Cuadro} Cuadro a consultar.
    **/
   pedirConsultarCuadro(cuadro) {
-    Ajax.pedir(configuracion.fachada + '/cuadro', 'ver', {'id': cuadro.id})
+    Ajax.pedir(configuracion.fachada + '/cuadro', 'ver', {
+        'id': cuadro.id
+      })
       .then(respuesta =>
         respuesta.json())
       .then(respuesta => {
-        if (respuesta.resultado == 'OK'){
+        if (respuesta.resultado == 'OK') {
           this.mostrar('consulta')
           this.vistas.get('consulta').cargarCuadro(respuesta.datos)
-        }
-        else
-          throw (respuesta.mensaje)
+        } else
+          this.alertar(respuesta.mensaje)
       })
       .catch(ex => {
-        throw `ERROR en Modigliani.pedirConsultarCuadros: ${ex}`
+        this.alertar(ex)
       })
   }
 
@@ -119,19 +191,20 @@ class Modigliani {
       @param cuadro {Cuadro} Cuadro a consultar.
    **/
   pedirEditarCuadro(cuadro) {
-    Ajax.pedir(configuracion.fachada + '/cuadro', 'ver', {'id': cuadro.id})
+    Ajax.pedir(configuracion.fachada + '/cuadro', 'ver', {
+        'id': cuadro.id
+      })
       .then(respuesta =>
         respuesta.json())
       .then(respuesta => {
-        if (respuesta.resultado == 'OK'){
+        if (respuesta.resultado == 'OK') {
           this.mostrar('formularioEditar')
           this.vistas.get('formularioEditar').cargarCuadro(respuesta.datos)
-        }
-        else
-          throw (respuesta.mensaje)
+        } else
+          this.alertar(respuesta.mensaje)
       })
       .catch(ex => {
-        throw `ERROR en Modigliani.pedirEditarCuadros: ${ex}`
+        this.alertar(ex)
       })
   }
 
@@ -146,6 +219,7 @@ class Modigliani {
   **/
   mostrar(vista) {
     for (let [clave, valor] of this.vistas.entries()) {
+      if (clave == 'alerta') continue
       if (clave == 'barraNavegacion') continue
       if (clave == vista)
         valor.mostrar()
@@ -171,10 +245,10 @@ class Modigliani {
         if (respuesta.resultado == 'OK')
           this.pedirListaCuadros()
         else
-          throw (respuesta.mensaje)
+          this.alertar(respuesta.mensaje)
       })
       .catch(ex => {
-        throw `ERROR en Modigliani.insertar: ${ex}`
+        this.alertar(ex)
       })
   }
 
@@ -189,10 +263,10 @@ class Modigliani {
         if (respuesta.resultado == 'OK')
           this.pedirListaCuadros()
         else
-          throw (respuesta.mensaje)
+          this.alertar(respuesta.mensaje)
       })
       .catch(ex => {
-        throw `ERROR en Modigliani.modificar: ${ex}`
+        this.alertar(ex)
       })
   }
 
@@ -200,18 +274,20 @@ class Modigliani {
   		@param cuadro {Cuadro} Cuadro a eliminar
    */
   pedirEliminarCuadro(cuadro) {
-    Ajax.pedir(configuracion.fachada + '/cuadro', 'borrar', {'id': cuadro.id}, 'GET')
+    Ajax.pedir(configuracion.fachada + '/cuadro', 'borrar', {
+        'id': cuadro.id
+      }, 'GET')
       .then(respuesta =>
         respuesta.json())
       .then(respuesta => {
         if (respuesta.resultado == 'OK')
           this.pedirListaCuadros()
-          //this.vistas.get('listaCuadros').cargarCuadros(respuesta.datos)
+        //this.vistas.get('listaCuadros').cargarCuadros(respuesta.datos)
         else
-          throw (respuesta.mensaje)
+          this.alertar(respuesta.mensaje)
       })
       .catch(ex => {
-        throw `ERROR en Modigliani.pedirEliminarCuadros: ${ex}`
+        this.alertar(ex)
       })
   }
 

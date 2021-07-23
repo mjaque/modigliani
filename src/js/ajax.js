@@ -3,13 +3,12 @@
 /** Clase para realizar peticiones Ajax.
  **/
 export class Ajax {
-  /** Realiza una petición Ajax vía POST pasando los parámetros como un JSON en el body.
-  	@param url {string} URL del servidor.
-  	@param parametros {Objeto} Parámetros que se pasarán al servidor
-  	@return {Promise} Devuelve una Promise.
-
-  	Ref: https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch
-  **/
+  /**
+   * Define el token de autenticación para las peticiones.
+   */
+  static setToken(token){
+    Ajax.token = token
+  }
 
   /** Realiza una petición Ajax vía POST pasando los parámetros como un JSON en el body.
     @param url {String} URL del servidor, incluye el nombre del controlador.
@@ -33,6 +32,9 @@ export class Ajax {
         metodo: metodoControlador
       }
     }
+    if (Ajax.token)
+      opciones.headers.Authorization = 'Bearer ' + Ajax.token
+
     switch(metodoHTTP){
       case 'GET':
         let primero = true
@@ -45,6 +47,7 @@ export class Ajax {
       case 'POST':
         if (json){
           opciones.headers = {
+            'metodo': metodoControlador,
             'Content-Type': 'application/json', // 'application/x-www-form-urlencoded',
             'charset': 'utf-8'
           }

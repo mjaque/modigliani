@@ -2,6 +2,7 @@
 
 import { Vista } from './vista.js'
 import { TarjetaCuadro } from './tarjetacuadro.js'
+import { Alerta } from './alerta.js'
 
 /** Vista del formulario de alta de cuadro.
 **/
@@ -35,6 +36,10 @@ constructor(controlador, dirVistas) {
 	**/
 	cargarCuadros(cuadros){
 		this.vaciar()
+		if (cuadros.length == 0){
+			this.controlador.alertar('No hay ningún cuadro en el sistema.', Alerta.INFO)
+			return new Promise(resolve => {resolve(true)})
+		}
 		const promesas = []	//Creamos un array de promesas
 		for (let i = 0; i < cuadros.length; i++){
 			let tarjeta = new TarjetaCuadro(this, this.dirVistas, cuadros[i])

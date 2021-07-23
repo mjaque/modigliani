@@ -71,6 +71,11 @@ Search.appendIndex(
             "summary": "M\u00E9todo\u0020de\u0020implementaci\u00F3n\u0020del\u0020Singleton.\u0020Devuelve\u0020una\u0020referencia\u0020a\u0020la\u0020instancia\u0020de\u0020BD",
             "url": "classes/modigliani-dao-BD.html#method_getInstance"
         },                {
+            "fqsen": "\\modigliani\\dao\\BD\u003A\u003Alogin\u0028\u0029",
+            "name": "login",
+            "summary": "Comprueba\u0020el\u0020nombre\u0020del\u0020usuario\u0020y\u0020la\u0020constrase\u00F1a.\u0020Si\u0020no\u0020coincide,\u0020lanza\u0020una\u0020excepci\u00F3n.",
+            "url": "classes/modigliani-dao-BD.html#method_login"
+        },                {
             "fqsen": "\\modigliani\\dao\\BD\u003A\u003AlistarCuadros\u0028\u0029",
             "name": "listarCuadros",
             "summary": "Devuelve\u0020la\u0020lista\u0020de\u0020cuadros.",
@@ -205,6 +210,121 @@ Search.appendIndex(
             "name": "anexos",
             "summary": "",
             "url": "classes/modigliani-modelos-Cuadro.html#property_anexos"
+        },                {
+            "fqsen": "\\modigliani\\controladores\\Usuario",
+            "name": "Usuario",
+            "summary": "Controlador\u0020de\u0020Usuario.",
+            "url": "classes/modigliani-controladores-Usuario.html"
+        },                {
+            "fqsen": "\\modigliani\\controladores\\Usuario\u003A\u003Alogin\u0028\u0029",
+            "name": "login",
+            "summary": "Comprueba\u0020los\u0020par\u00E1metros\u0020de\u0020usuario\u0020y\u0020clave\u0020y\u0020devuelve\u0020una\u0020respuesta\u0020con\u0020un\u0020JTW\u0020v\u00E1lido.",
+            "url": "classes/modigliani-controladores-Usuario.html#method_login"
+        },                {
+            "fqsen": "\\modigliani\\controladores\\Usuario\u003A\u003Ainsertar\u0028\u0029",
+            "name": "insertar",
+            "summary": "Inserta\u0020un\u0020nuevo\u0020cuadro\u0020en\u0020la\u0020base\u0020de\u0020datos.",
+            "url": "classes/modigliani-controladores-Usuario.html#method_insertar"
+        },                {
+            "fqsen": "\\modigliani\\controladores\\Usuario\u003A\u003Amodificar\u0028\u0029",
+            "name": "modificar",
+            "summary": "M\u00E9todo\u0020para\u0020modificar\u0020un\u0020cuadro.",
+            "url": "classes/modigliani-controladores-Usuario.html#method_modificar"
+        },                {
+            "fqsen": "\\modigliani\\controladores\\Usuario\u003A\u003Aborrar\u0028\u0029",
+            "name": "borrar",
+            "summary": "Elimina\u0020un\u0020cuadro\u0020de\u0020la\u0020base\u0020de\u0020datos.",
+            "url": "classes/modigliani-controladores-Usuario.html#method_borrar"
+        },                {
+            "fqsen": "\\modigliani\\controladores\\Usuario\u003A\u003Aresponder\u0028\u0029",
+            "name": "responder",
+            "summary": "Establece\u0020la\u0020cabeceras\u0020de\u0020la\u0020respuesta\u0020y\u0020la\u0020env\u00EDa\u0020al\u0020emisor.",
+            "url": "classes/modigliani-controladores-Usuario.html#method_responder"
+        },                {
+            "fqsen": "\\modigliani\\modelos\\JWT",
+            "name": "JWT",
+            "summary": "Clase\u0020modelo\u0020que\u0020representa\u0020un\u0020JWT\nNO\u0020es\u0020conforme\u0020a\u0020RFC.",
+            "url": "classes/modigliani-modelos-JWT.html"
+        },                {
+            "fqsen": "\\modigliani\\modelos\\JWT\u003A\u003AsetAlgoritmo\u0028\u0029",
+            "name": "setAlgoritmo",
+            "summary": "Establece\u0020el\u0020valor\u0020del\u0020algoritmo\u0020de\u0020encriptaci\u00F3n.\u0020Debe\u0020ser\u0020alguno\u0020de\u0020los\u0020devueltos\u0020por\u0020openssl_get_cipher_methods.",
+            "url": "classes/modigliani-modelos-JWT.html#method_setAlgoritmo"
+        },                {
+            "fqsen": "\\modigliani\\modelos\\JWT\u003A\u003AsetClave\u0028\u0029",
+            "name": "setClave",
+            "summary": "Establece\u0020el\u0020valor\u0020de\u0020la\u0020clave\u0020de\u0020encriptaci\u00F3n.",
+            "url": "classes/modigliani-modelos-JWT.html#method_setClave"
+        },                {
+            "fqsen": "\\modigliani\\modelos\\JWT\u003A\u003AsetIV\u0028\u0029",
+            "name": "setIV",
+            "summary": "Establece\u0020el\u0020valor\u0020del\u0020vector\u0020de\u0020inicializaci\u00F3n.",
+            "url": "classes/modigliani-modelos-JWT.html#method_setIV"
+        },                {
+            "fqsen": "\\modigliani\\modelos\\JWT\u003A\u003AgetPayload\u0028\u0029",
+            "name": "getPayload",
+            "summary": "Valida\u0020el\u0020token\u0020recibido\u0020por\u0020HTTP\u0020y\u0020devuelve\u0020el\u0020Payload.",
+            "url": "classes/modigliani-modelos-JWT.html#method_getPayload"
+        },                {
+            "fqsen": "\\modigliani\\modelos\\JWT\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Constructor\u0020de\u0020la\u0020clase.",
+            "url": "classes/modigliani-modelos-JWT.html#method___construct"
+        },                {
+            "fqsen": "\\modigliani\\modelos\\JWT\u003A\u003AsetPayload\u0028\u0029",
+            "name": "setPayload",
+            "summary": "Establece\u0020la\u0020carga\u0020\u0028payload\u0029\u0020del\u0020Jwt",
+            "url": "classes/modigliani-modelos-JWT.html#method_setPayload"
+        },                {
+            "fqsen": "\\modigliani\\modelos\\JWT\u003A\u003Afirmar\u0028\u0029",
+            "name": "firmar",
+            "summary": "Calcula\u0020la\u0020firma\u0020del\u0020JWT.\u0020Devuelve\u0020el\u0020token\u0020firmado.",
+            "url": "classes/modigliani-modelos-JWT.html#method_firmar"
+        },                {
+            "fqsen": "\\modigliani\\modelos\\JWT\u003A\u003Abase64url_encode\u0028\u0029",
+            "name": "base64url_encode",
+            "summary": "Encode\u0020data\u0020to\u0020Base64URL.",
+            "url": "classes/modigliani-modelos-JWT.html#method_base64url_encode"
+        },                {
+            "fqsen": "\\modigliani\\modelos\\JWT\u003A\u003Abase64url_decode\u0028\u0029",
+            "name": "base64url_decode",
+            "summary": "Decode\u0020data\u0020from\u0020Base64URL\nRef\u003A\u0020https\u003A\/\/base64.guru\/developers\/php\/examples\/base64url",
+            "url": "classes/modigliani-modelos-JWT.html#method_base64url_decode"
+        },                {
+            "fqsen": "\\modigliani\\modelos\\JWT\u003A\u003A\u0024algo",
+            "name": "algo",
+            "summary": "",
+            "url": "classes/modigliani-modelos-JWT.html#property_algo"
+        },                {
+            "fqsen": "\\modigliani\\modelos\\JWT\u003A\u003A\u0024clave",
+            "name": "clave",
+            "summary": "",
+            "url": "classes/modigliani-modelos-JWT.html#property_clave"
+        },                {
+            "fqsen": "\\modigliani\\modelos\\JWT\u003A\u003A\u0024iv",
+            "name": "iv",
+            "summary": "",
+            "url": "classes/modigliani-modelos-JWT.html#property_iv"
+        },                {
+            "fqsen": "\\modigliani\\modelos\\JWT\u003A\u003A\u0024header",
+            "name": "header",
+            "summary": "",
+            "url": "classes/modigliani-modelos-JWT.html#property_header"
+        },                {
+            "fqsen": "\\modigliani\\modelos\\JWT\u003A\u003A\u0024payload",
+            "name": "payload",
+            "summary": "",
+            "url": "classes/modigliani-modelos-JWT.html#property_payload"
+        },                {
+            "fqsen": "\\modigliani\\modelos\\JWT\u003A\u003A\u0024signature",
+            "name": "signature",
+            "summary": "",
+            "url": "classes/modigliani-modelos-JWT.html#property_signature"
+        },                {
+            "fqsen": "\\modigliani\\modelos\\JWT\u003A\u003A\u0024token",
+            "name": "token",
+            "summary": "",
+            "url": "classes/modigliani-modelos-JWT.html#property_token"
         },                {
             "fqsen": "\\",
             "name": "\\",

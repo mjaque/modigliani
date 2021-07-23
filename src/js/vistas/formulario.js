@@ -90,7 +90,6 @@ export class Formulario extends Vista {
     if (!imagen.type.startsWith('image/')) return
 
     //Guardamos la imagen
-    console.log(imagen)
     this.imagenes.push(imagen)
 
     //Borramos la selección del input
