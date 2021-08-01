@@ -50,7 +50,7 @@ export class Consulta extends Vista {
     //Creamos la tarjeta para presentar la imagen
     cuadro.anexos.forEach( (imagen) => {
       const div = document.createElement('div')
-      this.nodoImagenes.insertBefore(div, this.nodoImagenes.firstChild.nextSibling)
+      this.nodoImagenes.appendChild(div)
       div.classList.add('contenedor')
 
       const img = document.createElement('img')
@@ -81,7 +81,7 @@ export class Consulta extends Vista {
         span.removeChild(span.lastChild)
       }
     //Quitamos las imágenes
-    while (this.nodoImagenes.children.length > 1)
+    while (this.nodoImagenes.children.length > 0)
       this.nodoImagenes.removeChild(this.nodoImagenes.firstChild)
   }
 
