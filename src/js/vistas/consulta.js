@@ -65,6 +65,7 @@ export class Consulta extends Vista {
   mostrar() {
     this.limpiar()
     this.div.style.display = 'block'
+    window.scrollTo(0,0)
   }
 
   /** Oculta la vista

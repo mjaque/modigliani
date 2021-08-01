@@ -16,6 +16,7 @@ constructor(controlador, dirVistas) {
   super(controlador, dirVistas + '/listacuadros.html')
 	this.dirVistas = dirVistas
   this.tarjetas = [] //Array de tarjetas de los cuadros
+	this.scrollY = 0	//Posición de scroll de la vista
 }
 
 	/**	Carga ...
@@ -72,6 +73,7 @@ constructor(controlador, dirVistas) {
 	**/
 	mostrar(){
 		this.div.style.display = 'flex'
+		setTimeout(this.recuperarScroll.bind(this), 100)
 	}
 
 	/** Oculta la vista
@@ -80,10 +82,21 @@ constructor(controlador, dirVistas) {
 		this.div.style.display = 'none'
 	}
 
+	/** Recupera la posición de scroll vertical de la vista.
+	**/
+	recuperarScroll(){
+		window.scrollTo({
+			top: this.scrollY,
+			left: 0,
+			behavior: 'smooth'
+		})
+	}
+
 	/** Muestra los detalles de un cuadro
 			@param Cuadro {Cuadro} Cuadro a consultar.
 	**/
 	pedirConsultarCuadro(cuadro){
+		this.scrollY = window.scrollY		//Recordamos la posición de scroll
 		this.controlador.pedirConsultarCuadro(cuadro)
 	}
 
@@ -91,6 +104,7 @@ constructor(controlador, dirVistas) {
 			@param Cuadro {Cuadro} Cuadro a editar.
 	**/
 	pedirEditarCuadro(cuadro){
+		this.scrollY = window.scrollY		//Recordamos la posición de scroll
 		this.controlador.pedirEditarCuadro(cuadro)
 	}
 
