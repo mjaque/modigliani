@@ -33,9 +33,10 @@ constructor(controlador, dirVistas) {
 
 	/** Carga las tarjetas de los cuadros.
 		@param cuadros {Object[]} Array de objetos con los datos de los cuadros a mostrar
+		@param rol {Integer} Indica el rol del usuario (0 - Usuario, 1 - Admin)
 		@return Devuelve una Promise.
 	**/
-	cargarCuadros(cuadros){
+	cargarCuadros(cuadros, rol){
 		this.vaciar()
 		if (cuadros.length == 0){
 			this.controlador.alertar('No hay ningún cuadro en el sistema.', Alerta.INFO)
@@ -43,7 +44,7 @@ constructor(controlador, dirVistas) {
 		}
 		const promesas = []	//Creamos un array de promesas
 		for (let i = 0; i < cuadros.length; i++){
-			let tarjeta = new TarjetaCuadro(this, this.dirVistas, cuadros[i])
+			let tarjeta = new TarjetaCuadro(this, this.dirVistas, cuadros[i], rol)
 			this.tarjetas.push(tarjeta)
 			promesas.push(tarjeta.cargar())
 		}

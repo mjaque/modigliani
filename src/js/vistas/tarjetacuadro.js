@@ -1,6 +1,7 @@
 'use strict'
 
 import { Vista } from './vista.js'
+import { ROL } from '../modelos/rol.js'
 
 /** Vista para mostrar un cuadro en modo "tarjeta".
  **/
@@ -9,10 +10,12 @@ export class TarjetaCuadro extends Vista {
   	@param controlador {Object} Controlador de la vista.
   	@param dirVistas {String} Directorio de vistas.
     @param cuadro {Cuadro} Model de cuadro con los datos.
+    @param rol {Integer} Indica el rol del usuario (0 - Usuario, 1 - Admin)
 **/
-  constructor(controlador, dirVistas, cuadro) {
+  constructor(controlador, dirVistas, cuadro, rol) {
     super(controlador, dirVistas + '/tarjetacuadro.html')
     this.cuadro = cuadro
+    this.rol = rol
   }
 
   /** 	Carga la plantilla.
@@ -48,8 +51,17 @@ export class TarjetaCuadro extends Vista {
 
     //Asociación de Eventos
     this.doc.getElementsByTagName('img')[1].onclick = this.consultar.bind(this)
-    this.doc.getElementsByTagName('img')[2].onclick = this.editar.bind(this)
-    this.doc.getElementsByTagName('img')[3].onclick = this.eliminar.bind(this)
+
+    switch(this.rol){
+      case ROL.USUARIO:
+        this.doc.getElementsByTagName('img')[2].style.display = 'none'
+        this.doc.getElementsByTagName('img')[3].style.display = 'none'
+        break
+      case ROL.ADMIN:
+        this.doc.getElementsByTagName('img')[2].onclick = this.editar.bind(this)
+        this.doc.getElementsByTagName('img')[3].onclick = this.eliminar.bind(this)
+        break
+    }
   }
 
   /** Muestra los detalles del Cuadro.

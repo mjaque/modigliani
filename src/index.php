@@ -47,14 +47,12 @@ $metodo = strtolower($_SERVER['HTTP_METODO']);
 if (!method_exists($controlador, $metodo))
 	throw new \Exception("Método desconocido.");
 
-//Control de Acceso
-//Si es usuario->login, no hay control
-if ($nombre_controlador != 'usuario' || $metodo != 'login'){
-	$payload = modelos\JWT::getPayload();
-	$usuario = $payload->usuario;
-	if ($usuario != 'Anacleto')
-		throw new \Exception("Acceso no autorizado.");
-}
+//Control de Acceso - Se realiza en cada controlador
+/*  $payload = modelos\JWT::getPayload();
+  $usuario = $payload->usuario;
+  if ($usuario != 'Anacleto')
+    throw new \Exception("Acceso no autorizado.");
+*/
 
 //Llamamos al método del controlador
 $controlador->{$metodo}();

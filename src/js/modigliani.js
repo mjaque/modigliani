@@ -1,5 +1,4 @@
-'use strict'
-
+//Importación de librerías
 import {
   configuracion
 } from './configuracion.js'
@@ -27,8 +26,9 @@ import {
 import {
   Alerta
 } from './vistas/alerta.js'
-
-//Importación de librerías
+import {
+  ROL
+} from './modelos/rol.js'
 
 /** Controlador Principal de la aplicación.
  **/
@@ -38,6 +38,7 @@ class Modigliani {
   **/
   constructor() {
     this.vistas = new Map() //Mapa de vistas de la aplicación.
+    this.rol = ROL.USUARIO
 
     //Eventos globales
     window.onload = this.cargar.bind(this)
@@ -89,19 +90,19 @@ class Modigliani {
     this.vistas.get('alerta').transferirA(this.main)
     this.vistas.get('alerta').div.style.display = 'none'
 
-    this.vistas.get('formularioLogin').transferirA(this.main)
-    this.vistas.get('listaCuadros').div.style.display = 'none'
     this.vistas.get('listaCuadros').transferirA(this.main)
-    this.vistas.get('formularioAlta').form.style.display = 'none'
+    //this.vistas.get('listaCuadros').div.style.display = 'none'
+    this.vistas.get('formularioLogin').transferirA(this.main)
+    this.vistas.get('formularioLogin').form.style.display = 'none'
     this.vistas.get('formularioAlta').transferirA(this.main)
-    this.vistas.get('consulta').div.style.display = 'none'
+    this.vistas.get('formularioAlta').form.style.display = 'none'
     this.vistas.get('consulta').transferirA(this.main)
-    this.vistas.get('formularioEditar').form.style.display = 'none'
+    this.vistas.get('consulta').div.style.display = 'none'
     this.vistas.get('formularioEditar').transferirA(this.main)
+    this.vistas.get('formularioEditar').form.style.display = 'none'
 
-    this.vistas.get('formularioLogin').mostrar()
-
-    this.alertar('Aplicación Iniciada', Alerta.EXITO)
+    //this.alertar('Aplicación Iniciada', Alerta.EXITO)
+    this.pedirListaCuadros()
   }
 
   /** Presenta una alerta al usuario.
@@ -128,35 +129,14 @@ class Modigliani {
       .then(respuesta => {
         if (respuesta.resultado == 'OK') {
           Ajax.setToken(respuesta.datos)
+          this.rol = ROL.ADMIN
+          this.vistas.get('barraNavegacion').cambiarAModoAdmin()
           this.pedirListaCuadros()
         } else
           this.alertar(respuesta.mensaje)
       })
       .catch(ex => {
         this.alertar(ex)
-      })
-  }
-
-  /** Identifica al usuario de la aplicación.
-      Realiza la petición Ajax para recibir el token (JWT)
-      @param usuario {String} Nombre de usuario.
-      @param clave {String} Clave del usuario.
-  **/
-  login(usuario, clave){
-    Ajax.pedir(configuracion.fachada + '/cuadro', 'ver')
-      .then(respuesta =>
-        respuesta.json())
-      .then(respuesta => {
-        if (respuesta.resultado == 'OK'){
-            console.log(respuesta)
-            //TODO: destruir? el formulario de login.
-            this.pedirListaCuadros()
-        }
-        else
-          throw (respuesta.mensaje)
-      })
-      .catch(ex => {
-        throw `ERROR en Modigliani.login: ${ex}`
       })
   }
 
@@ -169,7 +149,7 @@ class Modigliani {
         respuesta.json())
       .then(respuesta => {
         if (respuesta.resultado == 'OK')
-          this.vistas.get('listaCuadros').cargarCuadros(respuesta.datos)
+          this.vistas.get('listaCuadros').cargarCuadros(respuesta.datos, this.rol)
           .then(resp => {
             this.verListaCuadros()
           })
@@ -235,6 +215,20 @@ class Modigliani {
    **/
   verFormularioAlta() {
     this.mostrar('formularioAlta')
+  }
+
+  /** Abre el interfaz para identificar al usuario.
+   **/
+  verFormularioLogin() {
+    this.mostrar('formularioLogin')
+  }
+
+  /** Cierra la sesión del usuario.
+  **/
+  logout(){
+    this.rol = ROL.USUARIO
+    this.vistas.get('barraNavegacion').cambiarAModoUsuario()
+    this.pedirListaCuadros()
   }
 
   /** Muestra la vista indicada y oculta las demás

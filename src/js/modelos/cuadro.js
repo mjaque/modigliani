@@ -1,5 +1,3 @@
-'use strict'
-
 /** Clase que representa un Cuadro.
 **/
 export class Cuadro{
@@ -9,7 +7,7 @@ export class Cuadro{
 	}
 
 	/** Crea un cuadro a partir del objeto de datos proviniente de la base de datos.
-		@param cuadroDB {Object} Objeto de datos de la base de datos. Son campos numerados 
+		@param cuadroDB {Object} Objeto de datos de la base de datos. Son campos numerados
 	static crear(cuadroDB){
 	}**/
 

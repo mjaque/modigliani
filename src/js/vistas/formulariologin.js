@@ -22,6 +22,7 @@ export class FormularioLogin extends Vista {
     this.btnVerClave = this.doc.getElementById('btnVerClave')
 
     //Asociación de Eventos
+    this.doc.getElementById('btnCancelar').onclick = this.cancelar.bind(this)
     this.doc.getElementById('btnAcceder').onclick = this.acceder.bind(this)
     this.btnVerClave.onclick = this.verClave.bind(this)
   }
@@ -80,6 +81,13 @@ export class FormularioLogin extends Vista {
       throw ('Clave inválida.')
 
     this.controlador.login(usuario, clave)
+  }
+
+  /** Manejador del evento Cancelar.
+      Llama al método cancelarLogin del controlador
+  **/
+  cancelar() {
+    this.controlador.cancelarLogin()
   }
 
 }

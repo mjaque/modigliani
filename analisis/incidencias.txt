@@ -1,5 +1,3 @@
-- Mejora: Gestión de Errores y Excepciones.
-  - Mostrar mensajes de error al usuario.
 - Mejora: Crear documentos de diseño:
     - Diagrama de Clases.
     - Diagramas de Secuencia.
