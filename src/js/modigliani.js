@@ -226,6 +226,7 @@ class Modigliani {
   /** Cierra la sesión del usuario.
   **/
   logout(){
+    Ajax.setToken(null)
     this.rol = ROL.USUARIO
     this.vistas.get('barraNavegacion').cambiarAModoUsuario()
     this.pedirListaCuadros()
