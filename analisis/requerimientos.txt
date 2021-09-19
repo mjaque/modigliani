@@ -6,6 +6,12 @@ FUNCIONALES:
 	F1 - Alta de Cuadros		admin
 	F2 - Lista de Cuadros		admin
 	F3 - Consulta de Cuadro	admin, invitado
+	F4 - En el dashboard,
+		- al pasar el ratón por la imagen de una obra, el cursor cambiará a lupa +
+		- Al hacer click se abrirá una ventana superpuesta-modal, con la imagen a la izqda y los thumbs del resto a la dcha (amazon)
+		- Al hacer click sobre un thumb se cambiará la imagen de la izqda.
+		- Al hacer click sobre la imagen se mostrará ampliada. Al volver a hacer click se volverá a reducir (cursor en -).
+		- X para cerrar.
 
 ERGONÓMICOS:
 	E1 - Resolución sm (<992px)

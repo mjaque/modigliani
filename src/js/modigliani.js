@@ -27,6 +27,9 @@ import {
   Alerta
 } from './vistas/alerta.js'
 import {
+  Modal
+} from './vistas/modal.js'
+import {
   ROL
 } from './modelos/rol.js'
 
@@ -64,6 +67,8 @@ class Modigliani {
     promesas.push(this.vistas.get('formularioEditar').cargar())
     this.vistas.set('alerta', new Alerta(this, configuracion.dirVistas))
     promesas.push(this.vistas.get('alerta').cargar())
+    this.vistas.set('modal', new Modal(this, configuracion.dirVistas))
+    promesas.push(this.vistas.get('modal').cargar())
 
     Promise.all(promesas).then(this.activar.bind(this))
   }
@@ -100,6 +105,7 @@ class Modigliani {
     this.vistas.get('consulta').div.style.display = 'none'
     this.vistas.get('formularioEditar').transferirA(this.main)
     this.vistas.get('formularioEditar').form.style.display = 'none'
+    this.vistas.get('modal').transferirA(this.body)
 
     //this.alertar('Aplicación Iniciada', Alerta.EXITO)
     this.pedirListaCuadros()
@@ -164,6 +170,20 @@ class Modigliani {
   /** Muestra la lista de cuadros
    **/
   verListaCuadros() {
+    this.mostrar('listaCuadros')
+  }
+
+  /** Muestra en detalle las imágenes de un Cuadro.
+      @param cuadro {Cuadro} Cuadro a consultar.
+   **/
+  verImagen(cuadro) {
+    this.mostrar('modal', cuadro)
+  }
+
+  /** Atención al cierre del Modal.
+      Muestra la lista de cuadros
+   **/
+  cerrarModal() {
     this.mostrar('listaCuadros')
   }
 
@@ -234,15 +254,16 @@ class Modigliani {
 
   /** Muestra la vista indicada y oculta las demás
   	@param vista {String} Nombre de la vista a mostrar
+    @param param Parámetro que se pasa a la vista
   **/
-  mostrar(vista) {
+  mostrar(vista, param) {
     for (let [clave, valor] of this.vistas.entries()) {
       if (clave == 'alerta') continue
       if (clave == 'barraNavegacion') continue
       if (clave == vista)
-        valor.mostrar()
+        valor.mostrar(param)
       else
-        valor.ocultar()
+        valor.ocultar(param)
     }
   }
 

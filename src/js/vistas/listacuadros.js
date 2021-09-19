@@ -116,4 +116,11 @@ constructor(controlador, dirVistas) {
 		this.controlador.pedirEliminarCuadro(cuadro)
 	}
 
+	/** Muestra en detalle las imágenes de un Cuadro.
+      @param cuadro {Cuadro} Cuadro a consultar.
+   **/
+  verImagen(cuadro) {
+    	this.controlador.verImagen(cuadro)
+  }
+
 }

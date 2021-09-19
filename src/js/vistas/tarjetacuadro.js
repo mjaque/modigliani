@@ -50,6 +50,7 @@ export class TarjetaCuadro extends Vista {
       this.doc.getElementsByTagName('img')[0].setAttribute('src', 'img/no_image.png')
 
     //Asociación de Eventos
+    this.doc.getElementsByTagName('img')[0].onclick = this.verImagen.bind(this)
     this.doc.getElementsByTagName('img')[1].onclick = this.consultar.bind(this)
 
     switch(this.rol){
@@ -62,6 +63,12 @@ export class TarjetaCuadro extends Vista {
         this.doc.getElementsByTagName('img')[3].onclick = this.eliminar.bind(this)
         break
     }
+  }
+
+  /** Amplía los detalles de las imágenes del cuadro.
+   **/
+  verImagen() {
+    this.controlador.verImagen(this.cuadro)
   }
 
   /** Muestra los detalles del Cuadro.

@@ -1,5 +1,3 @@
-'use strict'
-
 import { Vista } from './vista.js'
 
 /** Vista para mostrar avisos al usuario.
@@ -13,7 +11,7 @@ export class Alerta extends Vista {
     super(controlador, dirVistas + '/alerta.html')
   }
 
-  /**	Carga los datos del cuadro en la vista
+  /**	Inicializa los atributos de la vista.
    **/
   configurar() {
     //Guardamos las referencias del documento necesarias antes de que se transfiera
